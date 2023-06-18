@@ -10,6 +10,7 @@ using namespace bb::db;
 #include "ProcInfo.h"
 #include "ProcInfoEarly.h"
 #include"InfoStrategy.h"
+#include"CPUop.h"
 
 #include <stdio.h>
 
@@ -200,10 +201,10 @@ void Info::info() {
     // send_info(nbytes);
     // pclose(fp);
     
-    // strategy = new ProcInfo();
-    // strategy->sendInfo(*this);
+    strategy = new CPUop();
+    strategy->sendInfo(*this);
 
-    executeStrategy(m_package.cmd_type);
+    // executeStrategy(m_package.cmd_type);
 }
 
 void Info::executeStrategy(int cmdType) {

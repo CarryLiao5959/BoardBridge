@@ -55,7 +55,7 @@ int DBHandler::get_json_data(const string filename){
 
 void DBHandler::try_insert(const string& sql){
     try {
-        pqxx::connection conn("dbname=" + m_dbname + " user=" + m_user + " password=" + m_password + " hostaddr=127.0.0.1 port=5433");
+        pqxx::connection conn("dbname=" + m_dbname + " user=" + m_user + " password=" + m_password + " hostaddr=127.0.0.1 port=5432");
         if (!conn.is_open()) {
             log_error("Can't open database");
             return;

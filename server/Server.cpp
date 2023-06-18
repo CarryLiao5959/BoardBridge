@@ -9,7 +9,7 @@ using namespace bb::thread;
 #include "SocketHandler.h"
 using namespace bb::socket;
 
-Server::Server() : m_ip("127.0.0.1"), m_port(8080), m_threadpool_num(8), m_socketpool_num(8), m_wait_time(10) {
+Server::Server() : m_ip("111.111.111.110"), m_port(8080), m_threadpool_num(8), m_socketpool_num(8), m_wait_time(10) {
     log_info("server ip: %s",m_ip.c_str());
     log_info("server port: %d", m_port);
     log_info("threadpool_num: %d", m_threadpool_num);
