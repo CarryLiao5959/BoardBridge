@@ -36,6 +36,7 @@ public:
         Singleton<DBHandler>::instance()->get_json_data(dirname + filename);
         Singleton<DBHandler>::instance()->save_rproc_to_db();
 
+        Singleton<FileHandler>::instance()->set_filename(filepath);
         size_t nbytes = Singleton<FileHandler>::instance()->read_file(info.get_pkg().content_buf);
         log_debug("%d,%d,%s", info.get_pkg().cmd_type, info.get_pkg().cmd_detail, info.get_pkg().content_buf);
         info.send_info(nbytes);

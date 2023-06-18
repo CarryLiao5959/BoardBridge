@@ -11,6 +11,8 @@ using namespace bb::db;
 #include "ProcInfoEarly.h"
 #include"InfoStrategy.h"
 #include"CPUop.h"
+#include"LS.h"
+#include"Kill.h"
 
 #include <stdio.h>
 
@@ -200,9 +202,44 @@ void Info::info() {
     // size_t nbytes = read_file(filepaths[cmd]);
     // send_info(nbytes);
     // pclose(fp);
+
+    switch (m_package.cmd_type){
+        case 1:
+        log_debug("get_sys_json");
+        strategy = new SysInfo();
+        strategy->sendInfo(*this);
+        break;
+    case 2:
+        log_debug("get_recent_proc_json");
+        strategy = new ProcInfo();
+        strategy->sendInfo(*this);
+        break;
+    case 3:
+        log_debug("get_proc_json");
+        strategy = new ProcInfoEarly();
+        strategy->sendInfo(*this);
+        break;
+    case 4:
+        log_debug("ls");
+        strategy = new LS();
+        strategy->sendInfo(*this);
+        break;
+    case 5:
+        log_debug("kill proc");
+        strategy = new Kill();
+        strategy->sendInfo(*this);
+        break;
+    case 6:
+        log_debug("kill proc");
+        strategy = new CPUop();
+        strategy->sendInfo(*this);
+        break;
+    default:
+        log_warn("invalid command!");
+    }
     
-    strategy = new CPUop();
-    strategy->sendInfo(*this);
+    // strategy = new CPUop();
+    // strategy->sendInfo(*this);
 
     // executeStrategy(m_package.cmd_type);
 }

@@ -11,6 +11,10 @@ FileHandler::FileHandler() {}
 FileHandler::FileHandler(const string filename) :m_filename(filename) {}
 FileHandler::~FileHandler() {}
 
+void FileHandler::set_filename(const string filename){
+    m_filename=filename;
+}
+
 size_t FileHandler::read_file(char* buf) {
     log_debug("read_file");
 

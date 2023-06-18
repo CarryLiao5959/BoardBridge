@@ -11,6 +11,7 @@ public:
     FileHandler(const string filename);
     ~FileHandler();
 
+    void set_filename(const string filename);
     size_t read_file(char* buf);
     FILE* open_pipe(const char* cmd, const char* type = "r");
     size_t read_pipe(FILE* fp);

@@ -36,7 +36,8 @@ public:
         Singleton<DBHandler>::instance()->get_json_data("info/sys.json");
         Singleton<DBHandler>::instance()->save_sys_to_db();
         
-        size_t nbytes = Singleton<FileHandler>::instance(filename)->read_file(info.get_pkg().content_buf);
+        Singleton<FileHandler>::instance()->set_filename(filename);
+        size_t nbytes = Singleton<FileHandler>::instance()->read_file(info.get_pkg().content_buf);
         log_debug("%d,%d,%s", info.get_pkg().cmd_type, info.get_pkg().cmd_detail, info.get_pkg().content_buf);
         info.send_info(nbytes);
         // send_info(nbytes, sockfd, package);
