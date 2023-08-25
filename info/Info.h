@@ -6,7 +6,8 @@
 #define SYS_INFO 1
 #define PROC_INFO 2
 
-class Info{
+namespace 
+{class Info{
 
 public:
     Info();
@@ -25,4 +26,4 @@ private:
     char m_buf[buf_size];
     static const char* commands[10];
 
-};
+};}
