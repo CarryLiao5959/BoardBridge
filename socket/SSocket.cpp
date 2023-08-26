@@ -1,5 +1,7 @@
 #include "SSocket.h"
 using namespace bb::socket;
+#include "Logger.h"
+using namespace bb::util;
 
 SSocket::SSocket() : Socket() {
 
@@ -19,9 +21,9 @@ int SSocket::sock_accept() {
     int conn_sock = accept(m_sockfd, (struct sockaddr*)&cli_addr, &cli_len);
     if (conn_sock == -1)
     {
-        printf("sock_accept error: errno=%d errstr=%s\n", errno, strerror(errno));
+        log_error("sock_accept error: errno=%d errstr=%s", errno, strerror(errno));
         return conn_sock;
     }
-    printf("accept success: conn_sock %d\n", conn_sock);
+    log_info("accept success: conn_sock %d", conn_sock);
     return conn_sock;
 }

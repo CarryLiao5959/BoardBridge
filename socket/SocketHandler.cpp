@@ -49,7 +49,7 @@ void SocketHandler::handle(int max_connects, int wait_time) {
             // client connect
             if (efd == serv_sock)
             {
-                printf("efd from serv_sock [%d]\n", serv_sock);
+                log_debug("efd from serv_sock [%d]", serv_sock);
                 int conn_sock = m_server->sock_accept();
                 Socket *socket = m_sockpool.get();
                 if (socket == nullptr) {
@@ -70,30 +70,26 @@ void SocketHandler::handle(int max_connects, int wait_time) {
                     break;
                 }
                 socket->m_sockfd = efd;
-                log_info("efd from cli_sock [%d]\n", efd);
+                log_info("efd from cli_sock [%d]", efd);
                 //recv
                 char buf[1024];
                 memset(buf, 0, sizeof(buf));
                 int len = recv(efd, buf, 1024, 0);
+                buf[len] = '\0';
+                log_debug("recv data: %s", buf);
                 if (len == -1)
                 {
-                    log_error("recv fail\n");
+                    log_error("recv fail");
                     detach_sock(socket);
-                }
-                else if (len == 0)
-                {
-                    log_warn("recv timeout\n");
+                    remove_to_pool(socket);
+                } else if (len == 0) {
+                    log_warn("recv timeout");
                     detach_sock(socket);
-                }
-                else
-                {
-                    // buf[len] = '\0';
-                    // printf("recv data: %s\n", buf);
-                    // Info* info = new Info(efd);
-                    // printf("atoi(buf): %d\n",atoi(buf));
-                    // info->info(atoi(buf));
+                    remove_to_pool(socket);
+                } else {
                     detach_sock(socket);
                     Task *task = TaskFactory::create(socket);
+                    task->set_cmd(atoi(buf));
                     Singleton<TaskDispatcher>::instance()->assign(task);
                 }
             }

@@ -55,6 +55,7 @@ void TaskDispatcher::run() {
 }
 
 void TaskDispatcher::assign(Task *task) {
+    log_debug("assign task");
     m_mutex.lock();
     m_tasks.push_back(task);
     m_mutex.unlock();

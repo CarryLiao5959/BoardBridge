@@ -17,10 +17,15 @@ class Task {
 
     void *get_data();
     void set_data(void *data);
+    int get_cmd()const{
+        return m_cmd;
+    }
+    void set_cmd(int cmd);
 
   protected:
     void *m_data;
     Mutex m_mutex;
+    int m_cmd;
 };
 
 } // namespace thread

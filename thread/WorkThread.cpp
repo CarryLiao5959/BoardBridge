@@ -4,6 +4,8 @@
 #include "Task.h"
 #include "ThreadPool.h"
 using namespace bb::thread;
+#include "Socket.h"
+using namespace bb::socket;
 
 void WorkerThread::run() {
     // 让工作线程屏蔽掉所有的信号
@@ -24,6 +26,8 @@ void WorkerThread::run() {
         while (m_task == NULL){
             m_cond.wait(&m_mutex);
         }
+        int sockfd = ((Socket *)(m_task->get_data()))->get_fd();
+        log_debug("thread %d find task from socket %d cmd %d", m_tid, sockfd, m_task->get_cmd());
         m_mutex.unlock();
 
         // 确保线程在执行任务时不会被取消

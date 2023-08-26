@@ -24,7 +24,7 @@ class System {
     ~System() {}
     void init() {
         get_root_path();
-        Logger::instance()->open_ofstream(m_root_path + "/log/server.log");
+        Logger::instance()->open_ofstream(m_root_path + "/log/server.log",ios::out|ios::trunc);
 
         log_debug("open log/server.log");
 

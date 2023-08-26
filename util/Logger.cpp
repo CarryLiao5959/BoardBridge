@@ -39,7 +39,7 @@ void Logger::open_ofstream(const string &filename, ios_base::openmode mode) {
     if (m_fout.fail()) {
         throw logic_error("[Logger] log: Could not open log file " + m_filename);
     }
-    m_fout << "-----------------------------------------------------\n";
+    m_fout << "-----------------------------------------------------------------------\n";
 
     m_mutex.unlock();
     count_line();
@@ -79,7 +79,7 @@ void Logger::log(Level level, const char *file, int line, const char *fmt, ...) 
 
     time_t ticks = time(NULL);
     struct tm *ptm = localtime(&ticks);
-    ptm->tm_hour += 8; // add 8 hours to Beijing time
+    // ptm->tm_hour += 8; // add 8 hours to Beijing time
     mktime(ptm);
     char timestamp[32];
     memset(timestamp, 0, 32);
@@ -124,7 +124,7 @@ void Logger::rotate() {
 
     time_t ticks = time(NULL);
     struct tm *ptm = localtime(&ticks);
-    ptm->tm_hour += 8; // add 8 hours to Beijing time
+    // ptm->tm_hour += 8; // add 8 hours to Beijing time
     mktime(ptm);
     char timestamp[32];
     memset(timestamp, 0, 32);

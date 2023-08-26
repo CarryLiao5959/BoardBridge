@@ -1,5 +1,7 @@
 #include "Select.h"
 using namespace bb::select;
+#include "Logger.h"
+using namespace bb::util;
 
 Select::Select() {
     clear_set();
@@ -15,11 +17,11 @@ int Select::select() {
     m_tmpset = m_rdset;
     int infds = ::select(m_max_fd + 1, &m_tmpset, NULL, NULL, NULL);
     if (infds == -1) {
-        printf("select fail errno:%d errstr:%s\n", errno, strerror(errno));
+        log_error("select fail errno:%d errstr:%s", errno, strerror(errno));
         exit(1);
     }
     else if (infds == 0) {
-        printf("select timeout\n");
+        log_warn("select timeout");
     }
     return infds;
 }
@@ -59,7 +61,7 @@ void Select::add_fd(Socket *socket) {
 }
 
 void Select::rm_fd(int fd) {
-    close(fd);
+    // close(fd);
     FD_CLR(fd, &m_rdset);
     if (fd == m_max_fd) {
         for (int i = m_max_fd; i > 0; i--) {
@@ -69,12 +71,12 @@ void Select::rm_fd(int fd) {
             }
         }
     }
-    printf("max_fd=%d\n", m_max_fd);
+    log_debug("max_fd=%d", m_max_fd);
 }
 
 void Select::rm_fd(Socket *socket) {
     int fd = socket->get_fd();
-    close(fd);
+    // close(fd);
     FD_CLR(fd, &m_rdset);
     if (fd == m_max_fd) {
         for (int i = m_max_fd; i > 0; i--) {
@@ -84,7 +86,7 @@ void Select::rm_fd(Socket *socket) {
             }
         }
     }
-    printf("max_fd=%d\n", m_max_fd);
+    log_debug("max_fd=%d", m_max_fd);
 }
 
 void Select::set_max_fd(int max_fd) {

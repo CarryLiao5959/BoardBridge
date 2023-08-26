@@ -9,6 +9,10 @@ using namespace bb::select;
 #include "Logger.h"
 using namespace bb::util;
 
+#include <string>
+#include <vector>
+using namespace std;
+
 namespace bb {
 namespace socket {
 
