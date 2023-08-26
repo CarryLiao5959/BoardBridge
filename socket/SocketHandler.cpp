@@ -36,6 +36,7 @@ void SocketHandler::listen(const string &ip, int port) {
 void SocketHandler::handle(int max_connects, int wait_time) {
     int serv_sock = m_server->get_fd();
     m_select = new Select(serv_sock);
+    log_info("serv_sock: %d", serv_sock);
     m_select->add_fd(serv_sock);
     m_sockpool.init(max_connects);
     while (1)
@@ -69,19 +70,19 @@ void SocketHandler::handle(int max_connects, int wait_time) {
                     break;
                 }
                 socket->m_sockfd = efd;
-                printf("efd from cli_sock [%d]\n", efd);
+                log_info("efd from cli_sock [%d]\n", efd);
                 //recv
                 char buf[1024];
                 memset(buf, 0, sizeof(buf));
                 int len = recv(efd, buf, 1024, 0);
                 if (len == -1)
                 {
-                    printf("recv fail\n");
+                    log_error("recv fail\n");
                     detach_sock(socket);
                 }
                 else if (len == 0)
                 {
-                    printf("recv timeout\n");
+                    log_warn("recv timeout\n");
                     detach_sock(socket);
                 }
                 else

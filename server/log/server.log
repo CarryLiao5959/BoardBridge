@@ -18,3 +18,148 @@
 2023-08-26 21:24:17 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
 2023-08-26 21:24:17 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
 2023-08-26 21:24:17 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-08-26 21:30:36 DEBUG ./util/System.h: 29 open log/server.log
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-08-26 21:30:36 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-08-26 21:30:36 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-08-26 21:30:36 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-08-26 21:30:36 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-08-26 21:34:14 DEBUG ./util/System.h: 29 open log/server.log
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-08-26 21:34:14 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-08-26 21:34:14 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-08-26 21:34:14 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-08-26 21:34:14 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-08-26 21:36:09 DEBUG ./util/System.h: 29 open log/server.log
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-08-26 21:36:09 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-08-26 21:36:09 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-08-26 21:36:09 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-08-26 21:36:09 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+-----------------------------------------------------
+2023-08-26 21:36:16 DEBUG ./util/System.h: 29 open log/server.log
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-08-26 21:36:16 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-08-26 21:36:16 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-08-26 21:36:16 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-08-26 21:36:16 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+-----------------------------------------------------
+2023-08-26 21:41:02 DEBUG ./util/System.h: 29 open log/server.log
+2023-08-26 21:41:02 INFO server/Server.cpp: 13 server ip: 127.0.0.1
+2023-08-26 21:41:02 INFO server/Server.cpp: 14 server port: 8080
+2023-08-26 21:41:02 INFO server/Server.cpp: 15 threadpool_num: 8
+2023-08-26 21:41:02 INFO server/Server.cpp: 16 socketpool_num: 8
+2023-08-26 21:41:02 INFO server/Server.cpp: 17 wait_time: 10
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-08-26 21:41:02 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-08-26 21:41:02 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-08-26 21:41:02 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-08-26 21:41:02 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-08-26 21:41:02 INFO socket/SocketHandler.cpp: 39 serv_sock: 5
+-----------------------------------------------------
+2023-08-26 21:43:22 DEBUG ./util/System.h: 29 open log/server.log
+2023-08-26 21:43:22 INFO server/Server.cpp: 13 server ip: 127.0.0.1
+2023-08-26 21:43:22 INFO server/Server.cpp: 14 server port: 8080
+2023-08-26 21:43:22 INFO server/Server.cpp: 15 threadpool_num: 8
+2023-08-26 21:43:22 INFO server/Server.cpp: 16 socketpool_num: 8
+2023-08-26 21:43:22 INFO server/Server.cpp: 17 wait_time: 10
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-08-26 21:43:22 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-08-26 21:43:22 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-08-26 21:43:22 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-08-26 21:43:22 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-08-26 21:43:22 INFO socket/Socket.cpp: 53 sock set success: 5
+
+2023-08-26 21:43:22 INFO socket/Socket.cpp: 77 setsockopt SO_REUSEADDR success
+
+2023-08-26 21:43:22 INFO socket/Socket.cpp: 65 setsockopt SO_KEEPALIVE success
+
+2023-08-26 21:43:22 INFO socket/Socket.cpp: 32 bind success
+
+2023-08-26 21:43:22 INFO socket/Socket.cpp: 42 listen success
+
+2023-08-26 21:43:22 INFO socket/SocketHandler.cpp: 39 serv_sock: 5

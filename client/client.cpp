@@ -5,7 +5,7 @@ using namespace bb::socket;
 int main()
 {
     const string serv_ip="127.0.0.1";
-    const int serv_port=5005;
+    const int serv_port=8080;
 
     CSocket* socket=new CSocket(serv_ip,serv_port);
     int cli_sock = socket->sock_init();

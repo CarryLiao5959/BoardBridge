@@ -39,6 +39,7 @@ void Logger::open_ofstream(const string &filename, ios_base::openmode mode) {
     if (m_fout.fail()) {
         throw logic_error("[Logger] log: Could not open log file " + m_filename);
     }
+    m_fout << "-----------------------------------------------------\n";
 
     m_mutex.unlock();
     count_line();

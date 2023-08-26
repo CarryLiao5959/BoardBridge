@@ -1,5 +1,7 @@
 #include "Socket.h"
 using namespace bb::socket;
+#include "Logger.h"
+using namespace bb::util;
 
 Socket::Socket(){
 
@@ -24,31 +26,31 @@ int Socket::sock_bind(){
     serv_addr.sin_port = htons(m_port);
     int ret=bind(m_sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
     if(ret<0){
-        printf("sock_bind error: errno=%d errstr=%s\n",errno,strerror(errno));
+        log_error("sock_bind error: errno=%d errstr=%s\n", errno, strerror(errno));
         exit(1);
     }
-    printf("bind success\n");
+    log_info("bind success\n");
     return ret;
 }
 
 int Socket::sock_listen(){
     int ret = listen(m_sockfd, 5);
     if(ret<0){
-        printf("sock_listen error: errno=%d errstr=%s\n",errno,strerror(errno));
+        log_error("sock_listen error: errno=%d errstr=%s\n", errno, strerror(errno));
         exit(1);
     }
-    printf("listen success\n");
+    log_info("listen success\n");
     return ret;
 }
 
 int Socket::sock_init(){
     int sockfd=::socket(AF_INET,SOCK_STREAM,0);
     if(sockfd<0){
-        printf("create socket error: errno=%d errstr=%s\n",errno,strerror(errno));
+        log_error("create socket error: errno=%d errstr=%s\n", errno, strerror(errno));
         exit(1);
     }
     m_sockfd=sockfd;
-    printf("sock set success: %d\n",sockfd);
+    log_info("sock set success: %d\n", sockfd);
     return sockfd;
 }
 
@@ -57,10 +59,10 @@ int Socket::set_keep_alive(){
     unsigned int len = sizeof(opt);
     int ret=setsockopt(m_sockfd, SOL_SOCKET, SO_KEEPALIVE, &opt, len);
     if(ret<0){
-        printf("set_keep_alive error: errno=%d errstr=%s\n",errno,strerror(errno));
+        log_error("set_keep_alive error: errno=%d errstr=%s\n", errno, strerror(errno));
         exit(1);
     }
-    printf("setsockopt SO_KEEPALIVE success\n");
+    log_info("setsockopt SO_KEEPALIVE success\n");
     return ret;
 }
 
@@ -69,10 +71,10 @@ int Socket::set_reuse_addr(){
     unsigned int len = sizeof(opt);
     int ret=setsockopt(m_sockfd, SOL_SOCKET, SO_REUSEADDR, &opt, len);
     if(ret<0){
-        printf("set_reuse_addr error: errno=%d errstr=%s\n",errno,strerror(errno));
+        log_error("set_reuse_addr error: errno=%d errstr=%s\n", errno, strerror(errno));
         exit(1);
     }
-    printf("setsockopt SO_REUSEADDR success\n");
+    log_info("setsockopt SO_REUSEADDR success\n");
     return ret;
 }
 
