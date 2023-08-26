@@ -2,7 +2,7 @@
 CC = g++
 
 # 源文件
-SRCS := $(wildcard *.cpp)
+SRCS := $(shell find ./* -type f|grep '\.cpp' | grep -v 'server\.cpp'| grep -v 'client\.cpp')
 $(warning SRCS is ${SRCS})
 
 # 目标文件
@@ -25,22 +25,22 @@ $(warning CFLAGS is ${CFLAGS})
 LDFLAG = -lpthread -std=c++11 -ldl
 $(warning LDFLAG is ${LDFLAG})
 
-SRC_SERVER = server.cpp
+SRC_SERVER = server/server.cpp
 OBJ_SERVER = ${SRC_SERVER:%.cpp=%.o}
-EXE_SERVER = server
+EXE_SERVER = server/server
 
-SRC_CLIENT = client.cpp
+SRC_CLIENT = client/client.cpp
 OBJ_CLIENT = ${SRC_CLIENT:%.cpp=%.o}
-EXE_CLIENT = client
+EXE_CLIENT = client/client
 
 target: clean ${EXE_SERVER} ${EXE_CLIENT}
 
 # server
-$(EXE_SERVER): server.o $(COMMON_OBJS)
+$(EXE_SERVER): server/server.o $(COMMON_OBJS)
 	$(CC) -o $@ $^ $(LDFLAG) $(CFLAGS) $(INCLUDE)
 
 # client
-$(EXE_CLIENT): client.o $(COMMON_OBJS)
+$(EXE_CLIENT): client/client.o $(COMMON_OBJS)
 	$(CC) -o $@ $^ $(LDFLAG) $(CFLAGS) $(INCLUDE)
 
 %.o: %.cpp

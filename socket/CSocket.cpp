@@ -1,4 +1,6 @@
 #include "CSocket.h"
+using namespace bb::socket;
+
 #include <netdb.h>
 
 CSocket::CSocket() : Socket() {

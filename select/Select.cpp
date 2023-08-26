@@ -1,4 +1,5 @@
 #include "Select.h"
+using namespace bb::select;
 
 Select::Select() {
     clear_set();
@@ -49,7 +50,30 @@ void Select::add_fd(int fd) {
     }
 }
 
+void Select::add_fd(Socket *socket) {
+    int fd = socket->get_fd();
+    FD_SET(fd, &m_rdset);
+    if (fd > m_max_fd) {
+        m_max_fd = fd;
+    }
+}
+
 void Select::rm_fd(int fd) {
+    close(fd);
+    FD_CLR(fd, &m_rdset);
+    if (fd == m_max_fd) {
+        for (int i = m_max_fd; i > 0; i--) {
+            if (isset(fd)) {
+                m_max_fd = i;
+                break;
+            }
+        }
+    }
+    printf("max_fd=%d\n", m_max_fd);
+}
+
+void Select::rm_fd(Socket *socket) {
+    int fd = socket->get_fd();
     close(fd);
     FD_CLR(fd, &m_rdset);
     if (fd == m_max_fd) {

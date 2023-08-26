@@ -1,4 +1,5 @@
 #include "Socket.h"
+using namespace bb::socket;
 
 Socket::Socket(){
 
@@ -41,7 +42,7 @@ int Socket::sock_listen(){
 }
 
 int Socket::sock_init(){
-    int sockfd=socket(AF_INET,SOCK_STREAM,0);
+    int sockfd=::socket(AF_INET,SOCK_STREAM,0);
     if(sockfd<0){
         printf("create socket error: errno=%d errstr=%s\n",errno,strerror(errno));
         exit(1);
@@ -77,4 +78,12 @@ int Socket::set_reuse_addr(){
 
 int Socket::get_fd(){
     return m_sockfd;
+}
+
+bool Socket::close() {
+    if (m_sockfd > 0) {
+        ::close(m_sockfd);
+        m_sockfd = 0;
+    }
+    return true;
 }

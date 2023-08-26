@@ -2,6 +2,9 @@
 
 #include "Socket.h"
 
+namespace bb{
+  namespace socket{
+
 class CSocket : public Socket {
 
 public:
@@ -15,3 +18,5 @@ public:
   int set_send_timeout(int second);
   int gethostbyname(const char* name);
 };
+  }
+}

@@ -1,4 +1,6 @@
 #include "Info.h"
+using namespace bb::info;
+
 #include <stdio.h>
 
 Info::Info() {}

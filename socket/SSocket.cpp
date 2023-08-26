@@ -1,5 +1,5 @@
 #include "SSocket.h"
-
+using namespace bb::socket;
 
 SSocket::SSocket() : Socket() {
 

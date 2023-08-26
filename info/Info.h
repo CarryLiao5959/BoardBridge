@@ -1,13 +1,16 @@
 #pragma once
 
 #include "Socket.h"
+using namespace bb::socket;
 
 #define EXIT 0
 #define SYS_INFO 1
 #define PROC_INFO 2
 
-namespace 
-{class Info{
+namespace bb{
+namespace info{
+    
+class Info{
 
 public:
     Info();
@@ -26,4 +29,6 @@ private:
     char m_buf[buf_size];
     static const char* commands[10];
 
-};}
+};
+}
+}

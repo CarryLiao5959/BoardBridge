@@ -11,7 +11,8 @@
 #include <unistd.h>
 
 using namespace std;
-
+namespace bb {
+namespace socket {
 const uint32_t buf_size = 1024;
 
 struct MsgHead{
@@ -20,6 +21,8 @@ struct MsgHead{
 };
 
 class Socket {
+  friend class SocketHandler;
+
 public:
   Socket();
   Socket(const string& ip, const int port);
@@ -33,9 +36,11 @@ public:
   int set_reuse_addr();
 
   int get_fd();
+  bool close();
 
 protected:
   string m_ip;
   int m_port;
   int m_sockfd;
-};
+  };
+}}

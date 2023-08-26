@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Socket.h"
-
+namespace bb {
+namespace socket {
 class SSocket : public Socket {
 
 public:
@@ -10,4 +11,4 @@ public:
   ~SSocket();
 
   int sock_accept();
-};
+};}}

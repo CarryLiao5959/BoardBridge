@@ -1,4 +1,5 @@
 #include "CSocket.h"
+using namespace bb::socket;
 #include <iostream>
 
 int main()
