@@ -22,7 +22,8 @@ void Task::set_data(void *data) {
     m_data = data;
 }
 
-void Task::set_cmd(int cmd){
+void Task::set_cmd(int cmd,int cmd_detail){
     Autolock lock(&m_mutex);
     m_cmd = cmd;
+    m_cmd_detail = cmd_detail;
 }

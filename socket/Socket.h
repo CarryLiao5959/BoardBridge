@@ -13,7 +13,7 @@
 using namespace std;
 namespace bb {
 namespace socket {
-const uint32_t buf_size = 1024;
+const uint32_t buf_size = 4096;
 
 struct MsgHead{
   char tag[32];

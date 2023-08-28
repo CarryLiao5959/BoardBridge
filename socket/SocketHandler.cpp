@@ -57,6 +57,7 @@ void SocketHandler::handle(int max_connects, int wait_time) {
                     break;
                 }
                 socket->m_sockfd = conn_sock;
+                active_sock[conn_sock]=socket;
                 if (conn_sock > 0) {
                     attach_sock(socket);
                 }
@@ -64,19 +65,23 @@ void SocketHandler::handle(int max_connects, int wait_time) {
             // client send/recv
             else
             {
-                Socket *socket = m_sockpool.get();
-                if (socket == nullptr) {
-                    log_warn("no socket available in socketpool");
-                    break;
+                Socket *socket;
+                if (active_sock.count(efd)) {
+                    socket = active_sock[efd];
+                }else{
+                    socket = m_sockpool.get();
+                    if (socket == nullptr) {
+                        log_warn("no socket available in socketpool");
+                        break;
+                    }
+                    socket->m_sockfd = efd;
                 }
-                socket->m_sockfd = efd;
                 log_info("efd from cli_sock [%d]", efd);
                 //recv
-                char buf[1024];
-                memset(buf, 0, sizeof(buf));
-                int len = recv(efd, buf, 1024, 0);
-                buf[len] = '\0';
-                log_debug("recv data: %s", buf);
+                struct InfoPackage package;
+                memset(&package, 0, sizeof(package));
+                int len = recv(efd, &package, sizeof(package), 0);
+                log_debug("recv data: %s", package.content_buf);
                 if (len == -1)
                 {
                     log_error("recv fail");
@@ -89,7 +94,7 @@ void SocketHandler::handle(int max_connects, int wait_time) {
                 } else {
                     detach_sock(socket);
                     Task *task = TaskFactory::create(socket);
-                    task->set_cmd(atoi(buf));
+                    task->set_cmd(package.cmd_type, package.cmd_detail);
                     Singleton<TaskDispatcher>::instance()->assign(task);
                 }
             }

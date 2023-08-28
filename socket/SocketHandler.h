@@ -9,6 +9,7 @@ using namespace bb::select;
 #include "Logger.h"
 using namespace bb::util;
 
+#include <map>
 #include <string>
 #include <vector>
 using namespace std;
@@ -33,6 +34,7 @@ public:
   private:
     SSocket * m_server;
     Select *m_select;
+    map<int, Socket *> active_sock;
     ObjectPool<Socket> m_sockpool;
     Mutex m_mutex;
 };
