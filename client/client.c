@@ -1,5 +1,12 @@
 #include "client.h"
 
+const char *filenames[] = {
+    "",
+    "file/sys.json",
+    "file/recentproc.json",
+    "file/proc.json",
+};
+
 int main() {
     const char *serv_ip = "127.0.0.1";
     const int serv_port = 8080;
@@ -46,10 +53,14 @@ int main() {
 
         memset(&package, 0, sizeof(package));
 
+        if(cmd==5){
+            continue;
+        }
+
         recv(cli_sock, &package, sizeof(package), 0);
         printf("recv from ip[%s]:\n %s\n", serv_ip, package.content_buf);
 
-        FILE *json_file = fopen("/home/carry/BoardBridge/client/file/output.json", "w");
+        FILE *json_file = fopen(filenames[cmd], "w");
         if (json_file == NULL) {
             perror("Failed to open file");
             return 1;

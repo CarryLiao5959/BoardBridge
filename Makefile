@@ -25,6 +25,9 @@ $(warning CFLAGS is ${CFLAGS})
 LDFLAG = -lpthread -std=c++11 -ldl
 $(warning LDFLAG is ${LDFLAG})
 
+# 库
+LIBS = -lpqxx -lpq
+
 SRC_SERVER = server/server.cpp
 OBJ_SERVER = ${SRC_SERVER:%.cpp=%.o}
 EXE_SERVER = server/server
@@ -37,14 +40,14 @@ target: clean ${EXE_SERVER} ${EXE_CLIENT}
 
 # server
 $(EXE_SERVER): server/server.o $(COMMON_OBJS)
-	$(CC) -o $@ $^ $(LDFLAG) $(CFLAGS) $(INCLUDE)
+	$(CC) -o $@ $^ $(LDFLAG) $(CFLAGS) $(INCLUDE) $(LIBS)
 
 # client
 $(EXE_CLIENT): client/client.o $(COMMON_OBJS)
-	$(CC) -o $@ $^ $(LDFLAG) $(CFLAGS) $(INCLUDE)
+	$(CC) -o $@ $^ $(LDFLAG) $(CFLAGS) $(INCLUDE) $(LIBS)
 
 %.o: %.cpp
-	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
+	${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@ $(LIBS)
 
 clean:
 	rm -f ${ALL_OBJS} ${OBJ_SERVER} ${EXE_SERVER} ${OBJ_CLIENT} ${EXE_CLIENT}

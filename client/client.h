@@ -19,8 +19,9 @@ struct InfoPackage {
 const char *cmd_typename[] = {
     "EXIT",
     "SYS_INFO",
-    "PROC_INFO",
+    "PROC_INFO(recently)",
+    "PROC_INFO(from start)",
     "BACKUP",
-    "CONTROL",
+    "KILL_PROC",
     "CMD_NUM"
 };

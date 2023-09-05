@@ -4,6 +4,8 @@ using namespace bb::info;
 #include "JsonHandler.h"
 #include "Singleton.h"
 using namespace bb::util;
+#include "DBHandler.h"
+using namespace bb::db;
 
 #include <stdio.h>
 
@@ -34,9 +36,9 @@ const char *Info::commands[] = {
 
 const char *Info::filepaths[] = {
     "",
-    "/home/carry/BoardBridge/info/sys.json",
-    "/home/carry/BoardBridge/info/recentproc.json",
-    "/home/carry/BoardBridge/info/proc.json",
+    "info/sys.json",
+    "info/recentproc.json",
+    "info/proc.json",
     };
 
 FILE *Info::open_pipe(const char *type = "r") {
@@ -114,12 +116,14 @@ size_t Info::read_file(const string filename) {
 void Info::get_cmd_content() {
     string m_cmd_content = m_buf;
     // log_debug("%s", m_cmd_content.c_str());
-    JsonHandler *jh = new JsonHandler("/home/carry/BoardBridge/info/");
+    JsonHandler *jh = new JsonHandler("info/");
     switch (m_package.cmd_type) {
     case 1:
         log_debug("get_sys_json");
         jh->set_filename("sys.json");
         jh->get_sys_json(m_cmd_content);
+        Singleton<DBHandler>::instance()->get_json_data("info/sys.json");
+        Singleton<DBHandler>::instance()->save_sys_to_db();
         break;
     case 2:
         log_debug("get_recent_proc_json");
