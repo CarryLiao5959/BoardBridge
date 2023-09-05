@@ -110,27 +110,52 @@ void JsonHandler::get_sys_json(string data) {
     start = line.find(':', 0) + 1;
     end = line.find("us");
     j["cpu"]["us"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
+    log_debug("us");
+
     start = line.find(',', end) + 1;
     end = line.find("sy");
     j["cpu"]["sy"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
+    log_debug("sy");
+
     start = line.find(',', end) + 1;
     end = line.find("ni");
     j["cpu"]["ni"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
+    log_debug("ni");
+
     start = line.find(',', end) + 1;
     end = line.find("id");
     j["cpu"]["id"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
+    log_debug("id");
+
     start = line.find(',', end) + 1;
     end = line.find("wa");
     j["cpu"]["wa"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
+    log_debug("wa");
+
     start = line.find(',', end) + 1;
     end = line.find("hi");
     j["cpu"]["hi"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
+    log_debug("hi");
+
     start = line.find(',', end) + 1;
     end = line.find("si");
+    // end = start + 5;
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
     j["cpu"]["si"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("si");
+
     start = line.find(',', end) + 1;
     end = line.find("st");
+    // end = start + 5;
+    log_debug("start %d end %d %s", start, end, line.substr(start, end - start).c_str());
     j["cpu"]["st"] = std::stof(trim(line.substr(start, end - start)));
+    log_debug("st");
 
     // Mem行
     log_debug("4");

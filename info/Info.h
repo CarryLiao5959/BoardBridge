@@ -7,10 +7,10 @@ namespace bb {
 namespace info {
 
 struct InfoPackage{
-    u_int64_t cmd_type;
-    u_int64_t cmd_detail;
-    u_int64_t content_len;
-    char content_buf[buf_size];
+    u_int64_t cmd_type;          // 命令类型
+    u_int64_t cmd_detail;        // 特定命令类型下的附加信息
+    u_int64_t content_len;       // 内容长度
+    char content_buf[buf_size];  // 内容
 };
 
 class Info {

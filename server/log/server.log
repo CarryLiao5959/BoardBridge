@@ -1,49 +1,154 @@
 -----------------------------------------------------------------------
-2023-08-28 16:29:06 DEBUG ./util/System.h: 29 open log/server.log
-2023-08-28 16:29:06 INFO server/Server.cpp: 13 server ip: 127.0.0.1
-2023-08-28 16:29:06 INFO server/Server.cpp: 14 server port: 8080
-2023-08-28 16:29:06 INFO server/Server.cpp: 15 threadpool_num: 8
-2023-08-28 16:29:06 INFO server/Server.cpp: 16 socketpool_num: 8
-2023-08-28 16:29:06 INFO server/Server.cpp: 17 wait_time: 10
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
-2023-08-28 16:29:06 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
-2023-08-28 16:29:06 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
-2023-08-28 16:29:06 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
-2023-08-28 16:29:06 INFO socket/Socket.cpp: 53 sock set success: 5
-2023-08-28 16:29:06 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
-2023-08-28 16:29:06 INFO socket/Socket.cpp: 77 setsockopt SO_REUSEADDR success
-2023-08-28 16:29:06 INFO socket/Socket.cpp: 65 setsockopt SO_KEEPALIVE success
-2023-08-28 16:29:06 INFO socket/Socket.cpp: 32 bind success
-2023-08-28 16:29:06 INFO socket/Socket.cpp: 42 listen success
-2023-08-28 16:29:06 INFO socket/SocketHandler.cpp: 39 serv_sock: 5
-2023-08-28 16:29:11 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
-2023-08-28 16:29:11 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
-2023-08-28 16:29:17 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
-2023-08-28 16:29:17 DEBUG socket/SocketHandler.cpp: 84 recv data: CONTROL
-2023-08-28 16:29:17 DEBUG select/Select.cpp: 89 max_fd=6
-2023-08-28 16:29:17 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
-2023-08-28 16:29:17 DEBUG thread/TaskDispatcher.cpp: 58 assign task
-2023-08-28 16:29:17 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
-2023-08-28 16:29:17 INFO thread/ThreadPool.cpp: 64 task is given to thread 1432094464
-2023-08-28 16:29:17 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
-2023-08-28 16:29:17 DEBUG thread/WorkThread.cpp: 30 thread 1432094464 find task from socket 6 cmd 4
-2023-08-28 16:29:17 DEBUG task/WorkTask.cpp: 14 WorkTask running
-2023-08-28 16:29:17 INFO task/WorkTask.cpp: 19 cmd: CONTROL
-2023-08-28 16:29:17 DEBUG info/Info.cpp: 40 open_pipe
-2023-08-28 16:29:17 DEBUG info/Info.cpp: 59 commands[cmd]: kill -9 
-2023-08-28 16:29:17 DEBUG info/Info.cpp: 68 read_pipe
-2023-08-28 16:29:17 WARN info/Info.cpp: 122 invalid command!
+2023-09-05 10:37:59 DEBUG ./util/System.h: 29 open log/server.log
+2023-09-05 10:37:59 INFO server/Server.cpp: 13 server ip: 127.0.0.1
+2023-09-05 10:37:59 INFO server/Server.cpp: 14 server port: 8080
+2023-09-05 10:37:59 INFO server/Server.cpp: 15 threadpool_num: 8
+2023-09-05 10:37:59 INFO server/Server.cpp: 16 socketpool_num: 8
+2023-09-05 10:37:59 INFO server/Server.cpp: 17 wait_time: 10
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-09-05 10:37:59 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-09-05 10:37:59 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-09-05 10:37:59 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-09-05 10:37:59 INFO socket/Socket.cpp: 53 sock set success: 5
+2023-09-05 10:37:59 INFO socket/Socket.cpp: 77 setsockopt SO_REUSEADDR success
+2023-09-05 10:37:59 INFO socket/Socket.cpp: 65 setsockopt SO_KEEPALIVE success
+2023-09-05 10:37:59 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-05 10:37:59 INFO socket/Socket.cpp: 32 bind success
+2023-09-05 10:37:59 INFO socket/Socket.cpp: 42 listen success
+2023-09-05 10:37:59 INFO socket/SocketHandler.cpp: 39 serv_sock: 5
+2023-09-05 10:38:01 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-05 10:38:01 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-05 10:38:04 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-05 10:38:04 DEBUG socket/SocketHandler.cpp: 84 recv data: PROC_INFO
+2023-09-05 10:38:04 DEBUG select/Select.cpp: 89 max_fd=6
+2023-09-05 10:38:04 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
+2023-09-05 10:38:04 DEBUG thread/TaskDispatcher.cpp: 58 assign task
+2023-09-05 10:38:04 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
+2023-09-05 10:38:04 INFO thread/ThreadPool.cpp: 64 task is given to thread 380819200
+2023-09-05 10:38:04 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-05 10:38:04 DEBUG thread/WorkThread.cpp: 30 thread 380819200 find task from socket 6 cmd 2
+2023-09-05 10:38:04 DEBUG task/WorkTask.cpp: 14 WorkTask running
+2023-09-05 10:38:04 INFO task/WorkTask.cpp: 19 cmd: PROC_INFO(recently)
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 43 open_pipe
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 64 commands[cmd]: ps -eo pid,ppid,comm,state,stime --sort=-start_time | head -n 20
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 73 read_pipe
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 85 m_buf=[  PID  PPID COMMAND         S STIME
+10786 10741 sh              S 10:38
+10787 10786 ps              R 10:38
+10788 10786 head            S 10:38
+10767   751 c               S 10:38
+10741   723 server          S 10:37
+ 2110    13 cpptools-srv    S 09:43
+ 1878    13 cpptools-srv    S 09:39
+ 1726    35 bash            S 09:38
+ 1553    13 cpptools-srv    S 09:37
+ 1423   316 cpptools        S 09:37
+  751    35 bash            S 09:35
+  723    35 bash            S 09:35
+  358   316 node            S 09:35
+  345    24 node            S 09:35
+  316    24 node            S 09:35
+  309   308 node            S 09:35
+  307     1 init            S 09:35
+  308   307 init            S 09:35
+  298     1 init            S 09:35
+],len=[720]
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 125 get_recent_proc_json
+2023-09-05 10:38:04 DEBUG util/JsonHandler.cpp: 212   PID  PPID COMMAND         S STIME
+2023-09-05 10:38:04 DEBUG util/JsonHandler.cpp: 245 Data saved to recentproc.json
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 94 read_file
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 140 m_sockfd=[6]
+2023-09-05 10:38:04 DEBUG info/Info.cpp: 157 send success
+2023-09-05 10:38:04 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-05 10:38:04 DEBUG task/WorkTask.h: 30 WorkTask destory
+2023-09-05 10:38:04 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-05 10:38:04 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-05 10:38:07 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-05 10:38:07 INFO socket/SSocket.cpp: 27 accept success: conn_sock 7
+2023-09-05 10:38:34 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-05 10:38:34 DEBUG socket/SocketHandler.cpp: 84 recv data: PROC_INFO
+2023-09-05 10:38:34 DEBUG select/Select.cpp: 89 max_fd=7
+2023-09-05 10:38:34 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
+2023-09-05 10:38:34 DEBUG thread/TaskDispatcher.cpp: 58 assign task
+2023-09-05 10:38:34 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
+2023-09-05 10:38:34 INFO thread/ThreadPool.cpp: 64 task is given to thread 380819200
+2023-09-05 10:38:34 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-05 10:38:34 DEBUG thread/WorkThread.cpp: 30 thread 380819200 find task from socket 6 cmd 2
+2023-09-05 10:38:34 DEBUG task/WorkTask.cpp: 14 WorkTask running
+2023-09-05 10:38:34 INFO task/WorkTask.cpp: 19 cmd: PROC_INFO(recently)
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 43 open_pipe
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 64 commands[cmd]: ps -eo pid,ppid,comm,state,stime --sort=-start_time | head -n 20
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 73 read_pipe
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 85 m_buf=[  PID  PPID COMMAND         S STIME
+10876 10875 ps              R 10:38
+10877 10875 head            S 10:38
+10875 10741 sh              S 10:38
+10830  1726 client          S 10:38
+10767   751 c               S 10:38
+10741   723 server          S 10:37
+ 2110    13 cpptools-srv    S 09:43
+ 1878    13 cpptools-srv    S 09:39
+ 1726    35 bash            S 09:38
+ 1553    13 cpptools-srv    S 09:37
+ 1423   316 cpptools        S 09:37
+  751    35 bash            S 09:35
+  723    35 bash            S 09:35
+  358   316 node            S 09:35
+  345    24 node            S 09:35
+  316    24 node            S 09:35
+  309   308 node            S 09:35
+  307     1 init            S 09:35
+  308   307 init            S 09:35
+],len=[720]
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 125 get_recent_proc_json
+2023-09-05 10:38:34 DEBUG util/JsonHandler.cpp: 212   PID  PPID COMMAND         S STIME
+2023-09-05 10:38:34 DEBUG util/JsonHandler.cpp: 245 Data saved to recentproc.json
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 94 read_file
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 140 m_sockfd=[6]
+2023-09-05 10:38:34 DEBUG info/Info.cpp: 157 send success
+2023-09-05 10:38:34 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-05 10:38:34 DEBUG task/WorkTask.h: 30 WorkTask destory
+2023-09-05 10:38:34 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-05 10:38:34 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-05 10:38:45 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-05 10:38:45 DEBUG socket/SocketHandler.cpp: 84 recv data: CMD_NUM
+2023-09-05 10:38:45 DEBUG select/Select.cpp: 89 max_fd=7
+2023-09-05 10:38:45 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
+2023-09-05 10:38:45 DEBUG thread/TaskDispatcher.cpp: 58 assign task
+2023-09-05 10:38:45 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
+2023-09-05 10:38:45 INFO thread/ThreadPool.cpp: 64 task is given to thread 380819200
+2023-09-05 10:38:45 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-05 10:38:45 DEBUG thread/WorkThread.cpp: 30 thread 380819200 find task from socket 6 cmd 5
+2023-09-05 10:38:45 DEBUG task/WorkTask.cpp: 14 WorkTask running
+2023-09-05 10:38:45 INFO task/WorkTask.cpp: 19 cmd: CONTROL
+2023-09-05 10:38:45 DEBUG info/Info.cpp: 43 open_pipe
+2023-09-05 10:38:45 DEBUG info/Info.cpp: 60 str: kill -9 10830 2>&1 | tee /dev/stderr
+2023-09-05 10:38:45 DEBUG info/Info.cpp: 64 commands[cmd]: kill -9 
+2023-09-05 10:38:45 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [7]
+2023-09-05 10:38:45 DEBUG socket/SocketHandler.cpp: 84 recv data: 
+2023-09-05 10:38:45 WARN socket/SocketHandler.cpp: 91 recv timeout
+2023-09-05 10:38:45 DEBUG select/Select.cpp: 89 max_fd=7
+2023-09-05 10:38:45 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-05 10:38:45 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-05 10:38:45 DEBUG task/WorkTask.h: 30 WorkTask destory
+2023-09-05 10:38:45 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-05 10:38:45 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-05 10:38:54 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-05 10:38:54 DEBUG socket/SocketHandler.cpp: 84 recv data: 
+2023-09-05 10:38:54 WARN socket/SocketHandler.cpp: 91 recv timeout
+2023-09-05 10:38:54 DEBUG select/Select.cpp: 89 max_fd=7
+2023-09-05 10:38:54 WARN socket/Socket.cpp: 90 Socket closed: 0

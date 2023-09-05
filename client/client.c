@@ -24,20 +24,22 @@ int main() {
             exit(EXIT_FAILURE);
         }
 
-        printf("press the info cmd:\n[1]sysinfo\n[2]proc info\n[3]backup\n[4]kill\n");
-        int cmd,cmd_detail;
+        printf("press the info cmd:\n[1]sysinfo\n[2]recent proc info\n[3]proc info\n[4]backup\n[5]kill\n");
+        int cmd, cmd_detail;
         scanf("%d", &cmd);
         if (cmd == 0) {
             break;
         }
-        printf("press the killed pid:\n");
-        scanf("%d", &cmd_detail);
+        if (cmd == 5) {
+            printf("press the killed pid:\n");
+            scanf("%d", &cmd_detail);
+        }
 
         struct InfoPackage package;
         memset(&package, 0, sizeof(package));
         package.cmd_type = cmd;
         package.cmd_detail = cmd_detail;
-        strcpy(package.content_buf ,cmd_typename[cmd]);
+        strcpy(package.content_buf, cmd_typename[cmd]);
 
         send(cli_sock, &package, sizeof(package), 0);
         printf("send success: %s\n", package.content_buf);
