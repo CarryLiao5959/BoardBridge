@@ -6,3 +6,7 @@ sudo -u postgres psql -p 5433 -d bb -a -f sql/sys.sql
 # -d bb: 使用 -d 选项指定要连接的数据库名称，这里的数据库名称是 bb。
 # -a: 表示在发送到服务器之前先回显所有查询。
 # -f sql/sys.sql: 使用 -f 选项指定从文件执行 SQL 命令。这里，它从 sql/sys.sql 文件执行 SQL 命令。
+
+sudo -u postgres psql -p 5433
+
+sudo -u postgres psql -p 5433 -d bb -a -f sql/recent_proc.sql

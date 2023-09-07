@@ -37,6 +37,28 @@ int DBHandler::get_json_data(const string filename){
     return 0;
 }
 
+void DBHandler::try_insert(const string& sql){
+    try {
+        pqxx::connection conn("dbname=" + m_dbname + " user=" + m_user + " password=" + m_password + " hostaddr=127.0.0.1 port=5433");
+        if (!conn.is_open()) {
+            log_error("Can't open database");
+            return;
+        }
+        log_info("connection db success");
+
+        pqxx::work work(conn);
+        work.exec(sql);
+        log_info("exec sql success");
+        work.commit();
+        log_info("commit sql success");
+
+        log_info("Data inserted into the database.");
+        conn.disconnect();
+    } catch (const std::exception &e) {
+        log_error("%s", e.what());
+    }
+}
+
 void DBHandler::save_sys_to_db(){
     nlohmann::json j = nlohmann::json::parse(m_json_data);
 
@@ -114,24 +136,28 @@ void DBHandler::save_sys_to_db(){
                  + "'" + system_time + "',"
                  + "'" + uptime + "',"
                  + std::to_string(users) + ");";
-    
-    try {
-        pqxx::connection conn("dbname=" + m_dbname + " user=" + m_user + " password=" + m_password + " hostaddr=127.0.0.1 port=5433");
-        if (!conn.is_open()) {
-            log_error("Can't open database");
-            return;
-        }
-        log_info("connection db success");
+    try_insert(sql);
+}
 
-        pqxx::work work(conn);
-        work.exec(sql);
-        log_info("exec sql success");
-        work.commit();
-        log_info("commit sql success");
+void DBHandler::save_rproc_to_db(){
+    nlohmann::json j = nlohmann::json::parse(m_json_data);
 
-        log_info("Data inserted into the database.");
-        conn.disconnect();
-    } catch (const std::exception &e) {
-        log_error("%s", e.what());
+    for(int i=1;i<20;i++){
+        string s="process "+to_string(i);
+        int pid = j[s]["PID"];
+        int ppid = j[s]["PPID"];
+        std::string command = j[s]["COMMAND"];
+        std::string status = j[s]["STATUS"];
+        std::string stime = j[s]["STIME"];
+
+        std::string sql = "INSERT INTO recent_proc_status ("
+                "pid, ppid, cmd, status, start_time"
+                ") VALUES ("
+                + std::to_string(pid) + ","
+                + std::to_string(ppid) + ","
+                + "'" + command + "',"
+                + "'" +status + "',"
+                + "'" +stime + "');";
+        try_insert(sql);
     }
 }

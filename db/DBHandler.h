@@ -13,7 +13,9 @@ public:
     ~DBHandler();
 
     int get_json_data(const string filename);
+    void try_insert(const string& sql);
     void save_sys_to_db();
+    void save_rproc_to_db();
 
 private:
     string m_filename;

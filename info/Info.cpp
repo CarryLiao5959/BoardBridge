@@ -129,11 +129,15 @@ void Info::get_cmd_content() {
         log_debug("get_recent_proc_json");
         jh->set_filename("recentproc.json");
         jh->get_proc_json(m_cmd_content);
+        Singleton<DBHandler>::instance()->get_json_data("info/recentproc.json");
+        Singleton<DBHandler>::instance()->save_rproc_to_db();
         break;
     case 3:
         log_debug("get_proc_json");
         jh->set_filename("proc.json");
         jh->get_proc_json(m_cmd_content);
+        Singleton<DBHandler>::instance()->get_json_data("info/proc.json");
+        Singleton<DBHandler>::instance()->save_rproc_to_db();
         break;
     default:
         log_warn("invalid command!");
