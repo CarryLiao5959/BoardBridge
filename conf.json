@@ -1,0 +1,7 @@
+{
+    "db":{
+        "dbname":"bb",
+        "user":"postgres",
+        "password":""
+    }
+}

@@ -10,6 +10,7 @@ class DBHandler{
 
 public:
     DBHandler();
+    DBHandler(const std::string& configFilename);
     ~DBHandler();
 
     int get_json_data(const string filename);

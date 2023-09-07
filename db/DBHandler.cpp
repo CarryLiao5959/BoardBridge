@@ -10,6 +10,8 @@ using namespace bb::util;
 #include <pqxx/pqxx>
 #include <nlohmann/json.hpp>
 
+using json = nlohmann::json;
+
 DBHandler::DBHandler() : 
     m_filename(""),
     m_dbname("bb"),
@@ -17,6 +19,20 @@ DBHandler::DBHandler() :
     m_password(""),
     m_table("")
 {}
+
+DBHandler::DBHandler(const std::string& configFilename) {
+    std::ifstream configFile(configFilename);
+    if (!configFile.is_open()) {
+        log_error("Error opening config file: %s",configFilename.c_str());
+    }
+
+    json config;
+    configFile >> config;
+
+    m_dbname = config["db"]["dbname"].get<std::string>();
+    m_user = config["db"]["user"].get<std::string>();
+    m_password = config["db"]["password"].get<std::string>();
+}
 
 DBHandler::~DBHandler(){}
 
