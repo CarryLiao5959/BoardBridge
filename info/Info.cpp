@@ -7,19 +7,32 @@ using namespace bb::util;
 #include "DBHandler.h"
 using namespace bb::db;
 #include "SysInfo.h"
+#include "ProcInfo.h"
+#include "ProcInfoEarly.h"
+#include"InfoStrategy.h"
 
 #include <stdio.h>
 
-Info::Info() {}
+void Info::init_map() {
+    strategies[1] = std::make_unique<SysInfo>();
+    strategies[2] = std::make_unique<ProcInfo>();
+    strategies[3] = std::make_unique<ProcInfoEarly>();
+}
+
+Info::Info() {
+    init_map();
+}
 
 Info::Info(int sockfd) {
     m_sockfd = sockfd;
+    init_map();
 }
 
 Info::Info(int sockfd, u_int64_t cmd_type, u_int64_t cmd_detail) {
     m_sockfd = sockfd;
     m_package.cmd_type = cmd_type;
     m_package.cmd_detail = cmd_detail;
+    init_map();
 }
 
 Info::~Info() {}
@@ -175,17 +188,32 @@ int Info::send_info(int nbytes) {
 }
 
 void Info::info() {
-    FILE* fp = open_pipe();
-    int cmd = m_package.cmd_type;
-    if (cmd== 5) {
-        pclose(fp);
-        return;
+    // FILE* fp = open_pipe();
+    // int cmd = m_package.cmd_type;
+    // if (cmd== 5) {
+    //     pclose(fp);
+    //     return;
+    // }
+    // read_pipe(fp);
+    // get_cmd_content();
+    // size_t nbytes = read_file(filepaths[cmd]);
+    // send_info(nbytes);
+    // pclose(fp);
+    
+    // strategy = new strategies[m_package.cmd_type];
+    // strategy->sendInfo(*this);
+
+    executeStrategy(m_package.cmd_type);
+}
+
+void Info::executeStrategy(int cmdType) {
+    for (auto it = strategies.begin();it != strategies.end();it++) {
+        log_debug("[%d]", (*it).first);
     }
-    read_pipe(fp);
-    get_cmd_content();
-    size_t nbytes = read_file(filepaths[cmd]);
-    send_info(nbytes);
-    pclose(fp);
-    // strategy = new SysInfo();
-    // strategy->sendInfo(&m_package, m_sockfd);
+    
+    if (strategies.find(cmdType) != strategies.end()) {
+        strategies[cmdType]->sendInfo(*this);
+    } else {
+        log_warn("Invalid command!");
+    }
 }

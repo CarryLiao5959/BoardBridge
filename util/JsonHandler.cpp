@@ -66,13 +66,16 @@ void JsonHandler::get_sys_json(string data) {
     std::getline(ss, line);
     start = line.find('-')+1;
     end = line.find("up");
-    j["system_time"] = trim(line.substr(start, end-start));
-    start = end+2;
+    j["system_time"] = trim(line.substr(start, end - start));
+    log_debug("system_time %s", j["system_time"]);
+    start = end + 2;
     end = line.find(',', start);
     j["uptime"] = trim(line.substr(start, end - start));
-    start = end+1;
+    log_debug("system_time %s", j["uptime"]);
+    start = end + 1;
     end = line.find("users");
     j["users"] = std::stoi(trim(line.substr(start, end - start)));
+    log_debug("system_time %d", j["users"]);
 
     std::vector<float> loads;
     size_t loadStart = line.rfind(":") + 1;

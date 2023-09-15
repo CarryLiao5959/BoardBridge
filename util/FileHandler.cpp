@@ -5,17 +5,19 @@ using namespace bb::util;
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
 
 FileHandler::FileHandler() {}
-FileHandler::FileHandler(const string filename):m_filename(filename) {}
+FileHandler::FileHandler(const string filename) :m_filename(filename) {}
 FileHandler::~FileHandler() {}
 
 size_t FileHandler::read_file(char* buf) {
     log_debug("read_file");
 
     ifstream file(m_filename, ifstream::binary);
+    log_debug("filename: %s", m_filename.c_str());
     if (!file) {
-        log_error("open file %s fail", m_filename.c_str());
+        log_error("open file %s fail: %s", m_filename.c_str(), strerror(errno));
         return -1;
     }
     // Go to the end of the file
@@ -32,10 +34,10 @@ size_t FileHandler::read_file(char* buf) {
     return fileSize;
 }
 
-FILE* FileHandler::open_pipe(const char* type) {
+FILE* FileHandler::open_pipe(const char* cmd, const char* type) {
     log_debug("open_pipe");
     FILE* fp;
-    fp = popen(m_filename.c_str(), type);
+    fp = popen(cmd, type);
     if (fp == NULL) {
         log_error("open pipe");
         return NULL;
@@ -54,6 +56,7 @@ size_t FileHandler::read_pipe(FILE* fp) {
         log_error("read failed|errno=%d,errstr=%s", errno, strerror(errno));
         return -1;
     }
+    log_debug("buf=[%s],len=[%d]", m_buf, nbytes);
     return nbytes;
 }
 

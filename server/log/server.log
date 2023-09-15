@@ -1,93 +1,641 @@
 -----------------------------------------------------------------------
-2023-09-14 21:32:50 DEBUG ./util/System.h: 29 open log/server.log
-2023-09-14 21:32:50 INFO server/Server.cpp: 13 server ip: 127.0.0.1
-2023-09-14 21:32:50 INFO server/Server.cpp: 14 server port: 8080
-2023-09-14 21:32:50 INFO server/Server.cpp: 15 threadpool_num: 8
-2023-09-14 21:32:50 INFO server/Server.cpp: 16 socketpool_num: 8
-2023-09-14 21:32:50 INFO server/Server.cpp: 17 wait_time: 10
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
-2023-09-14 21:32:50 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
-2023-09-14 21:32:50 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
-2023-09-14 21:32:50 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
-2023-09-14 21:32:50 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
-2023-09-14 21:32:50 INFO socket/Socket.cpp: 53 sock set success: 5
-2023-09-14 21:32:50 INFO socket/Socket.cpp: 77 setsockopt SO_REUSEADDR success
-2023-09-14 21:32:50 INFO socket/Socket.cpp: 65 setsockopt SO_KEEPALIVE success
-2023-09-14 21:32:50 INFO socket/Socket.cpp: 32 bind success
-2023-09-14 21:32:50 INFO socket/Socket.cpp: 42 listen success
-2023-09-14 21:32:50 INFO socket/SocketHandler.cpp: 39 serv_sock: 5
-2023-09-14 21:32:53 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
-2023-09-14 21:32:53 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
-2023-09-14 21:32:53 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
-2023-09-14 21:32:53 DEBUG socket/SocketHandler.cpp: 84 recv data: SYS_INFO
-2023-09-14 21:32:53 DEBUG select/Select.cpp: 89 max_fd=6
-2023-09-14 21:32:53 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
-2023-09-14 21:32:53 DEBUG thread/TaskDispatcher.cpp: 58 assign task
-2023-09-14 21:32:53 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
-2023-09-14 21:32:53 INFO thread/ThreadPool.cpp: 64 task is given to thread 1848137472
-2023-09-14 21:32:53 DEBUG thread/WorkThread.cpp: 30 thread 1848137472 find task from socket 6 cmd 1
-2023-09-14 21:32:53 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
-2023-09-14 21:32:53 DEBUG task/WorkTask.cpp: 14 WorkTask running
-2023-09-14 21:32:53 INFO task/WorkTask.cpp: 19 cmd: SYS_INFO
-2023-09-14 21:32:53 DEBUG info/Info.cpp: 52 open_pipe
-2023-09-14 21:32:53 DEBUG info/Info.cpp: 73 commands[cmd]: top -bn1 | head -n 5
-2023-09-14 21:32:53 DEBUG info/Info.cpp: 82 read_pipe
-2023-09-14 21:32:54 DEBUG info/Info.cpp: 94 m_buf=[top - 21:32:54 up  8:14,  0 users,  load average: 0.10, 0.10, 0.04
-Tasks:  33 total,   1 running,  32 sleeping,   0 stopped,   0 zombie
+2023-09-15 11:36:18 DEBUG ./util/System.h: 29 open log/server.log
+2023-09-15 11:36:18 INFO server/Server.cpp: 13 server ip: 127.0.0.1
+2023-09-15 11:36:18 INFO server/Server.cpp: 14 server port: 8080
+2023-09-15 11:36:18 INFO server/Server.cpp: 15 threadpool_num: 8
+2023-09-15 11:36:18 INFO server/Server.cpp: 16 socketpool_num: 8
+2023-09-15 11:36:18 INFO server/Server.cpp: 17 wait_time: 10
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 9 Thread created, tid is 0
+2023-09-15 11:36:18 DEBUG thread/TaskDispatcher.cpp: 15 init TaskDispatcher
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 1
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 1
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 2
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 2
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 3
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 3
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 4
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 4
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 5
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 5
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 6
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 6
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 7
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 7
+2023-09-15 11:36:18 DEBUG thread/Thread.cpp: 13 Thread created, tid is 8
+2023-09-15 11:36:18 DEBUG thread/ThreadPool.h: 25 WorkerThread created 8
+2023-09-15 11:36:18 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-15 11:36:18 INFO socket/Socket.cpp: 53 sock set success: 5
+2023-09-15 11:36:18 INFO socket/Socket.cpp: 77 setsockopt SO_REUSEADDR success
+2023-09-15 11:36:18 INFO socket/Socket.cpp: 65 setsockopt SO_KEEPALIVE success
+2023-09-15 11:36:18 INFO socket/Socket.cpp: 32 bind success
+2023-09-15 11:36:18 INFO socket/Socket.cpp: 42 listen success
+2023-09-15 11:36:18 INFO socket/SocketHandler.cpp: 39 serv_sock: 5
+2023-09-15 11:36:20 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-15 11:36:20 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-15 11:36:23 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-15 11:36:23 DEBUG socket/SocketHandler.cpp: 84 recv data: SYS_INFO
+2023-09-15 11:36:23 DEBUG select/Select.cpp: 89 max_fd=6
+2023-09-15 11:36:23 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
+2023-09-15 11:36:23 DEBUG thread/TaskDispatcher.cpp: 58 assign task
+2023-09-15 11:36:23 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
+2023-09-15 11:36:23 INFO thread/ThreadPool.cpp: 64 task is given to thread 11360000
+2023-09-15 11:36:23 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-15 11:36:23 DEBUG thread/WorkThread.cpp: 30 thread 11360000 find task from socket 6 cmd 1
+2023-09-15 11:36:23 DEBUG task/WorkTask.cpp: 14 WorkTask running
+2023-09-15 11:36:23 INFO task/WorkTask.cpp: 19 cmd: SYS_INFO
+2023-09-15 11:36:23 DEBUG info/Info.cpp: 211 [1]
+2023-09-15 11:36:23 DEBUG info/Info.cpp: 211 [2]
+2023-09-15 11:36:23 DEBUG info/Info.cpp: 211 [3]
+2023-09-15 11:36:23 DEBUG info/SysInfo.h: 21 SysInfo InfoStrategy
+2023-09-15 11:36:23 DEBUG util/FileHandler.cpp: 38 open_pipe
+2023-09-15 11:36:23 DEBUG util/FileHandler.cpp: 49 read_pipe
+2023-09-15 11:36:23 DEBUG util/FileHandler.cpp: 59 buf=[top - 11:36:23 up 22:18,  0 users,  load average: 0.23, 0.11, 0.07
+Tasks:  34 total,   1 running,  33 sleeping,   0 stopped,   0 zombie
 %Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
-MiB Mem :  12528.9 total,  10489.9 free,    780.9 used,   1258.1 buff/cache
-MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  11488.5 avail Mem 
+MiB Mem :  12528.9 total,  10335.7 free,    749.4 used,   1443.8 buff/cache
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  11518.2 avail Mem 
 ],len=[368]
-2023-09-14 21:32:54 DEBUG info/Info.cpp: 129 get_sys_json
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 64 1
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 87 2
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 107 3
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 113 start 8 end 14   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 114 us
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 119 start 17 end 23   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 120 sy
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 125 start 26 end 32   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 126 ni
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 131 start 35 end 41 100.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 132 id
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 137 start 44 end 50   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 138 wa
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 143 start 53 end 59   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 144 hi
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 149 start 62 end 68   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 151 si
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 156 start 71 end 77   0.0 
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 158 st
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 161 4
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 178 5
-2023-09-14 21:32:54 DEBUG util/JsonHandler.cpp: 198 Data saved to sys.json
-2023-09-14 21:32:54 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+2023-09-15 11:36:23 DEBUG info/SysInfo.h: 31 get_sys_json
+2023-09-15 11:36:23 DEBUG info/SysInfo.h: 34 buf: top - 11:36:23 up 22:18,  0 users,  load average: 0.23, 0.11, 0.07
+Tasks:  34 total,   1 running,  33 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  12528.9 total,  10335.7 free,    749.4 used,   1443.8 buff/cache
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  11518.2 avail Mem 
+
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 64 1
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 70 system_time 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 74 system_time 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 78 system_time 11351216
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 90 2
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 110 3
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 116 start 8 end 14   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 117 us
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 122 start 17 end 23   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 123 sy
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 128 start 26 end 32   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 129 ni
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 134 start 35 end 41 100.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 135 id
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 140 start 44 end 50   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 141 wa
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 146 start 53 end 59   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 147 hi
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 152 start 62 end 68   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 154 si
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 159 start 71 end 77   0.0 
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 161 st
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 164 4
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 181 5
+2023-09-15 11:36:23 DEBUG util/JsonHandler.cpp: 201 Data saved to sys.json
+2023-09-15 11:36:23 DEBUG db/DBHandler.cpp: 41 filename: info/sys.json
+2023-09-15 11:36:23 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
 	Is the server running locally and accepting
 	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
 
-2023-09-14 21:32:54 DEBUG info/Info.cpp: 103 read_file
-2023-09-14 21:32:54 DEBUG info/Info.cpp: 155 m_sockfd=[6]
-2023-09-14 21:32:54 DEBUG info/Info.cpp: 172 send success
-2023-09-14 21:32:54 WARN socket/Socket.cpp: 90 Socket closed: 0
-2023-09-14 21:32:54 DEBUG task/WorkTask.h: 30 WorkTask destory
-2023-09-14 21:32:54 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
-2023-09-14 21:32:54 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
-2023-09-14 21:32:55 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
-2023-09-14 21:32:55 DEBUG socket/SocketHandler.cpp: 84 recv data: 
-2023-09-14 21:32:55 WARN socket/SocketHandler.cpp: 91 recv timeout
-2023-09-14 21:32:55 DEBUG select/Select.cpp: 89 max_fd=6
-2023-09-14 21:32:55 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-15 11:36:23 DEBUG util/FileHandler.cpp: 15 read_file
+2023-09-15 11:36:23 DEBUG util/FileHandler.cpp: 18 filename: info/sys.json
+2023-09-15 11:36:23 DEBUG util/FileHandler.cpp: 31 {
+    "Tasks": {
+        "running": 1,
+        "sleeping": 33,
+        "stopped": 0,
+        "total": 34,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 100.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 0.0,
+        "us": 0.0,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23000000417232513,
+        0.10999999940395355,
+        0.07000000029802322
+    ],
+    "memory": {
+        "buff/cache": 1443.800048828125,
+        "free": 10335.7001953125,
+        "total": 12528.900390625,
+        "used": 749.4000244140625
+    },
+    "swap": {
+        "avail Mem": 11518.2001953125,
+        "free": 4096.0,
+        "total": 4096.0,
+        "used": 0.0
+    },
+    "system_time": "11:36:23",
+    "uptime": "22:18",
+    "users": 0
+}
+
+2023-09-15 11:36:23 DEBUG info/SysInfo.h: 40 1,0,{
+    "Tasks": {
+        "running": 1,
+        "sleeping": 33,
+        "stopped": 0,
+        "total": 34,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 100.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 0.0,
+        "us": 0.0,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23000000417232513,
+        0.10999999940395355,
+        0.07000000029802322
+    ],
+    "memory": {
+        "buff/cache": 1443.800048828125,
+        "free": 10335.7001953125,
+        "total": 12528.900390625,
+        "used": 749.4000244140625
+    },
+    "swap": {
+        "avail Mem": 11518.2001953125,
+        "free": 4096.0,
+        "total": 4096.0,
+        "used": 0.0
+    },
+    "system_time": "11:36:23",
+    "uptime": "22:18",
+    "users": 0
+}
+
+2023-09-15 11:36:23 DEBUG info/Info.cpp: 168 m_sockfd=[6]
+2023-09-15 11:36:23 DEBUG info/Info.cpp: 185 send success
+2023-09-15 11:36:23 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-15 11:36:23 DEBUG task/WorkTask.h: 30 WorkTask destory
+2023-09-15 11:36:23 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-15 11:36:23 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-15 11:36:24 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-15 11:36:24 DEBUG socket/SocketHandler.cpp: 84 recv data: PROC_INFO(recently)
+2023-09-15 11:36:24 DEBUG select/Select.cpp: 89 max_fd=6
+2023-09-15 11:36:24 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
+2023-09-15 11:36:24 DEBUG thread/TaskDispatcher.cpp: 58 assign task
+2023-09-15 11:36:24 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
+2023-09-15 11:36:24 INFO thread/ThreadPool.cpp: 64 task is given to thread 11360000
+2023-09-15 11:36:24 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-15 11:36:24 DEBUG thread/WorkThread.cpp: 30 thread 11360000 find task from socket 6 cmd 2
+2023-09-15 11:36:24 DEBUG task/WorkTask.cpp: 14 WorkTask running
+2023-09-15 11:36:24 INFO task/WorkTask.cpp: 19 cmd: PROC_INFO(recently)
+2023-09-15 11:36:24 DEBUG info/Info.cpp: 211 [1]
+2023-09-15 11:36:24 DEBUG info/Info.cpp: 211 [2]
+2023-09-15 11:36:24 DEBUG info/Info.cpp: 211 [3]
+2023-09-15 11:36:24 DEBUG info/ProcInfo.h: 21 ProcInfo InfoStrategy
+2023-09-15 11:36:24 DEBUG util/FileHandler.cpp: 38 open_pipe
+2023-09-15 11:36:24 DEBUG util/FileHandler.cpp: 49 read_pipe
+2023-09-15 11:36:24 DEBUG util/FileHandler.cpp: 59 buf=[  PID  PPID COMMAND         S STIME
+31734 31711 sh              S 11:36
+31735 31734 ps              R 11:36
+31736 31734 head            S 11:36
+31724 10164 c               S 11:36
+31711  6522 server          S 11:36
+31494  4582 cpptools-srv    S 11:35
+28121  4582 cpptools-srv    S 11:10
+12373     1 init            S 09:29
+12374 12373 init            S 09:29
+12375 12374 node            S 09:29
+12364     1 init            S 09:29
+12365 12364 init            S 09:29
+12366 12365 node            S 09:29
+12050     1 init            S 08:19
+12051 12050 node            S 08:19
+10162     1 init            S Sep14
+10163 10162 init            S Sep14
+10164 10163 bash            S Sep14
+ 6643  5399 node            S Sep14
+],len=[720]
+2023-09-15 11:36:24 DEBUG info/ProcInfo.h: 31 get_recentproc_json
+2023-09-15 11:36:24 DEBUG info/ProcInfo.h: 34 buf:   PID  PPID COMMAND         S STIME
+31734 31711 sh              S 11:36
+31735 31734 ps              R 11:36
+31736 31734 head            S 11:36
+31724 10164 c               S 11:36
+31711  6522 server          S 11:36
+31494  4582 cpptools-srv    S 11:35
+28121  4582 cpptools-srv    S 11:10
+12373     1 init            S 09:29
+12374 12373 init            S 09:29
+12375 12374 node            S 09:29
+12364     1 init            S 09:29
+12365 12364 init            S 09:29
+12366 12365 node            S 09:29
+12050     1 init            S 08:19
+12051 12050 node            S 08:19
+10162     1 init            S Sep14
+10163 10162 init            S Sep14
+10164 10163 bash            S Sep14
+ 6643  5399 node            S Sep14
+
+2023-09-15 11:36:24 DEBUG util/JsonHandler.cpp: 215   PID  PPID COMMAND         S STIME
+2023-09-15 11:36:24 DEBUG util/JsonHandler.cpp: 248 Data saved to recentproc.json
+2023-09-15 11:36:24 DEBUG db/DBHandler.cpp: 41 filename: info/recentproc.json
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:24 DEBUG util/FileHandler.cpp: 15 read_file
+2023-09-15 11:36:24 DEBUG util/FileHandler.cpp: 18 filename: info/sys.json
+2023-09-15 11:36:24 DEBUG util/FileHandler.cpp: 31 {
+    "Tasks": {
+        "running": 1,
+        "sleeping": 33,
+        "stopped": 0,
+        "total": 34,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 100.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 0.0,
+        "us": 0.0,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23000000417232513,
+        0.10999999940395355,
+        0.07000000029802322
+    ],
+    "memory": {
+        "buff/cache": 1443.800048828125,
+        "free": 10335.7001953125,
+        "total": 12528.900390625,
+        "used": 749.4000244140625
+    },
+    "swap": {
+        "avail Mem": 11518.2001953125,
+        "free": 4096.0,
+        "total": 4096.0,
+        "used": 0.0
+    },
+    "system_time": "11:36:23",
+    "uptime": "22:18",
+    "users": 0
+}
+
+2023-09-15 11:36:24 DEBUG info/ProcInfo.h: 40 2,0,{
+    "Tasks": {
+        "running": 1,
+        "sleeping": 33,
+        "stopped": 0,
+        "total": 34,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 100.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 0.0,
+        "us": 0.0,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23000000417232513,
+        0.10999999940395355,
+        0.07000000029802322
+    ],
+    "memory": {
+        "buff/cache": 1443.800048828125,
+        "free": 10335.7001953125,
+        "total": 12528.900390625,
+        "used": 749.4000244140625
+    },
+    "swap": {
+        "avail Mem": 11518.2001953125,
+        "free": 4096.0,
+        "total": 4096.0,
+        "used": 0.0
+    },
+    "system_time": "11:36:23",
+    "uptime": "22:18",
+    "users": 0
+}
+
+2023-09-15 11:36:24 DEBUG info/Info.cpp: 168 m_sockfd=[6]
+2023-09-15 11:36:24 DEBUG info/Info.cpp: 185 send success
+2023-09-15 11:36:24 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-15 11:36:24 DEBUG task/WorkTask.h: 30 WorkTask destory
+2023-09-15 11:36:24 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-15 11:36:24 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-15 11:36:25 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-15 11:36:25 DEBUG socket/SocketHandler.cpp: 84 recv data: PROC_INFO(from start)
+2023-09-15 11:36:25 DEBUG select/Select.cpp: 89 max_fd=6
+2023-09-15 11:36:25 DEBUG ./task/WorkTask.h: 23 new WorkTask sockfd: 6
+2023-09-15 11:36:25 DEBUG thread/TaskDispatcher.cpp: 58 assign task
+2023-09-15 11:36:25 DEBUG thread/TaskDispatcher.cpp: 46 let threadpool to assign task
+2023-09-15 11:36:25 INFO thread/ThreadPool.cpp: 64 task is given to thread 11360000
+2023-09-15 11:36:25 DEBUG thread/WorkThread.cpp: 30 thread 11360000 find task from socket 6 cmd 3
+2023-09-15 11:36:25 DEBUG thread/TaskDispatcher.cpp: 34 TaskDispatcher m_tasks is empty
+2023-09-15 11:36:25 DEBUG task/WorkTask.cpp: 14 WorkTask running
+2023-09-15 11:36:25 INFO task/WorkTask.cpp: 19 cmd: PROC_INFO(from start)
+2023-09-15 11:36:25 DEBUG info/Info.cpp: 211 [1]
+2023-09-15 11:36:25 DEBUG info/Info.cpp: 211 [2]
+2023-09-15 11:36:25 DEBUG info/Info.cpp: 211 [3]
+2023-09-15 11:36:25 DEBUG info/ProcInfoEarly.h: 21 ProcInfoEarly InfoStrategy
+2023-09-15 11:36:25 DEBUG util/FileHandler.cpp: 38 open_pipe
+2023-09-15 11:36:25 DEBUG util/FileHandler.cpp: 49 read_pipe
+2023-09-15 11:36:25 DEBUG util/FileHandler.cpp: 59 buf=[  PID  PPID COMMAND         S STIME
+    1     0 init            S Sep14
+ 4581     1 init            S Sep14
+ 4582  4581 init            S Sep14
+ 4583  4582 sh              S Sep14
+ 4584  4583 sh              S Sep14
+ 4589  4584 sh              S Sep14
+ 4593  4589 node            S Sep14
+ 4604  4593 node            S Sep14
+ 5399  4593 node            S Sep14
+ 5428  4593 node            S Sep14
+ 5441  5399 cpptools        S Sep14
+ 5466  4604 bash            S Sep14
+ 6520     1 init            S Sep14
+ 6521  6520 init            S Sep14
+ 6522  6521 bash            S Sep14
+ 6643  5399 node            S Sep14
+10162     1 init            S Sep14
+10163 10162 init            S Sep14
+10164 10163 bash            S Sep14
+],len=[720]
+2023-09-15 11:36:25 DEBUG info/ProcInfoEarly.h: 31 get_earlyproc_json
+2023-09-15 11:36:25 DEBUG info/ProcInfoEarly.h: 34 buf:   PID  PPID COMMAND         S STIME
+    1     0 init            S Sep14
+ 4581     1 init            S Sep14
+ 4582  4581 init            S Sep14
+ 4583  4582 sh              S Sep14
+ 4584  4583 sh              S Sep14
+ 4589  4584 sh              S Sep14
+ 4593  4589 node            S Sep14
+ 4604  4593 node            S Sep14
+ 5399  4593 node            S Sep14
+ 5428  4593 node            S Sep14
+ 5441  5399 cpptools        S Sep14
+ 5466  4604 bash            S Sep14
+ 6520     1 init            S Sep14
+ 6521  6520 init            S Sep14
+ 6522  6521 bash            S Sep14
+ 6643  5399 node            S Sep14
+10162     1 init            S Sep14
+10163 10162 init            S Sep14
+10164 10163 bash            S Sep14
+
+2023-09-15 11:36:25 DEBUG util/JsonHandler.cpp: 215   PID  PPID COMMAND         S STIME
+2023-09-15 11:36:25 DEBUG util/JsonHandler.cpp: 248 Data saved to proc.json
+2023-09-15 11:36:25 DEBUG db/DBHandler.cpp: 41 filename: info/proc.json
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 ERROR db/DBHandler.cpp: 74 could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5433"?
+
+2023-09-15 11:36:25 DEBUG util/FileHandler.cpp: 15 read_file
+2023-09-15 11:36:25 DEBUG util/FileHandler.cpp: 18 filename: info/sys.json
+2023-09-15 11:36:25 DEBUG util/FileHandler.cpp: 31 {
+    "Tasks": {
+        "running": 1,
+        "sleeping": 33,
+        "stopped": 0,
+        "total": 34,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 100.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 0.0,
+        "us": 0.0,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23000000417232513,
+        0.10999999940395355,
+        0.07000000029802322
+    ],
+    "memory": {
+        "buff/cache": 1443.800048828125,
+        "free": 10335.7001953125,
+        "total": 12528.900390625,
+        "used": 749.4000244140625
+    },
+    "swap": {
+        "avail Mem": 11518.2001953125,
+        "free": 4096.0,
+        "total": 4096.0,
+        "used": 0.0
+    },
+    "system_time": "11:36:23",
+    "uptime": "22:18",
+    "users": 0
+}
+
+2023-09-15 11:36:25 DEBUG info/ProcInfoEarly.h: 40 3,0,{
+    "Tasks": {
+        "running": 1,
+        "sleeping": 33,
+        "stopped": 0,
+        "total": 34,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 100.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 0.0,
+        "us": 0.0,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23000000417232513,
+        0.10999999940395355,
+        0.07000000029802322
+    ],
+    "memory": {
+        "buff/cache": 1443.800048828125,
+        "free": 10335.7001953125,
+        "total": 12528.900390625,
+        "used": 749.4000244140625
+    },
+    "swap": {
+        "avail Mem": 11518.2001953125,
+        "free": 4096.0,
+        "total": 4096.0,
+        "used": 0.0
+    },
+    "system_time": "11:36:23",
+    "uptime": "22:18",
+    "users": 0
+}
+
+2023-09-15 11:36:25 DEBUG info/Info.cpp: 168 m_sockfd=[6]
+2023-09-15 11:36:25 DEBUG info/Info.cpp: 185 send success
+2023-09-15 11:36:25 WARN socket/Socket.cpp: 90 Socket closed: 0
+2023-09-15 11:36:25 DEBUG task/WorkTask.h: 30 WorkTask destory
+2023-09-15 11:36:25 DEBUG socket/SocketHandler.cpp: 52 efd from serv_sock [5]
+2023-09-15 11:36:25 INFO socket/SSocket.cpp: 27 accept success: conn_sock 6
+2023-09-15 11:36:26 INFO socket/SocketHandler.cpp: 79 efd from cli_sock [6]
+2023-09-15 11:36:26 DEBUG socket/SocketHandler.cpp: 84 recv data: 
+2023-09-15 11:36:26 WARN socket/SocketHandler.cpp: 91 recv timeout
+2023-09-15 11:36:26 DEBUG select/Select.cpp: 89 max_fd=6
+2023-09-15 11:36:26 WARN socket/Socket.cpp: 90 Socket closed: 0

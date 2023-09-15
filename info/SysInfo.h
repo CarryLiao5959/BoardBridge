@@ -2,11 +2,14 @@
 
 #include "InfoStrategy.h"
 #include "Singleton.h"
+#include "JsonHandler.h"
 using namespace bb::util;
 #include "FileHandler.h"
 #include "Info.h"
 using namespace bb::info;
 #include "ConstPara.h"
+#include "DBHandler.h"
+using namespace bb::db;
 
 #include<string>
 
@@ -14,38 +17,29 @@ using namespace std;
 
 class SysInfo :public InfoStrategy {
 public:
-    virtual void sendInfo(InfoPackage* package, int sockfd) {
+    virtual void sendInfo(Info& info) {
+        log_debug("SysInfo InfoStrategy");
+        
         string filename = "info/sys.json";
-        // FILE* fp = Singleton<FileHandler>::instance(filename)->open_pipe();
-        // size_t nbytes = Singleton<FileHandler>::instance()->read_pipe(fp);
+        FILE* fp = Singleton<FileHandler>::instance(filename)->open_pipe(cmd.c_str());
+        Singleton<FileHandler>::instance()->read_pipe(fp);
+        char* buf = Singleton<FileHandler>::instance()->get_buf();
+        pclose(fp);
+        
         // get_cmd_content();
-        size_t nbytes = Singleton<FileHandler>::instance(filename)->read_file(package->content_buf);
-        log_debug("%d,%d,%s", package->cmd_type, package->cmd_detail, package->content_buf);
-        send_info(nbytes, sockfd, package);
-        // pclose(fp);
-    }
-    
-    int send_info(int nbytes, int sockfd, InfoPackage* package) {
-        log_debug("sockfd=[%d]", sockfd);
-        int error = 0;
-        socklen_t len = sizeof(error);
-        int retval = getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &error, &len);
-        if (retval != 0) {
-            log_error("getsockopt failed: errno=%d errstr=%s", errno, strerror(errno));
-        } else if (error != 0) {
-            log_error("sockfd error: errno=%d errstr=%s", errno, strerror(errno));
-        }
+        JsonHandler* jh = new JsonHandler("info/");
+        log_debug("get_sys_json");
+        jh->set_filename("sys.json");
 
-        package->content_len = nbytes;
-
-        int ret = send(sockfd, &package, sizeof(package), 0);
-        if (ret < 0) {
-            log_error("send failed: errno=%d errstr=%s", errno, strerror(errno));
-            return ret;
-        }
-        log_debug("send success");
-        memset(package->content_buf, 0, buf_size);
-        return ret;
+        log_debug("buf: %s", buf);
+        jh->get_sys_json(buf);
+        Singleton<DBHandler>::instance()->get_json_data("info/sys.json");
+        Singleton<DBHandler>::instance()->save_sys_to_db();
+        
+        size_t nbytes = Singleton<FileHandler>::instance(filename)->read_file(info.get_pkg().content_buf);
+        log_debug("%d,%d,%s", info.get_pkg().cmd_type, info.get_pkg().cmd_detail, info.get_pkg().content_buf);
+        info.send_info(nbytes);
+        // send_info(nbytes, sockfd, package);
     }
 private:
     static const string cmd;

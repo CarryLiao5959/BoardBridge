@@ -38,7 +38,7 @@ DBHandler::~DBHandler(){}
 
 int DBHandler::get_json_data(const string filename){
     m_filename = filename;
-
+    log_debug("filename: %s", filename.c_str());
     // 读取 JSON 文件
     std::ifstream json_file(m_filename);
     if (!json_file.is_open()) {

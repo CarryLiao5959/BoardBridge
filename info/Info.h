@@ -2,19 +2,27 @@
 
 #include "Socket.h"
 using namespace bb::socket;
-#include"InfoStrategy.h"
+
 #include "ConstPara.h"
+#include<map>
+#include<memory>
+
+class InfoStrategy;
+class SysInfo;
 
 namespace bb {
 namespace info {
 
-class Info {
-
+  class Info {
+    friend class SysInfo;
+    std::map<int, std::unique_ptr<InfoStrategy>> strategies;
   public:
     Info();
     Info(int sockfd);
     Info(int sockfd, u_int64_t cmd_type, u_int64_t cmd_detail);
     ~Info();
+
+    void init_map();
 
     FILE *open_pipe(const char *type);
     size_t read_pipe(FILE *fp);
@@ -23,11 +31,17 @@ class Info {
     void info();
 
     void get_cmd_content();
+    int get_sockfd() { return m_sockfd; }
+    char* get_buf() { return m_buf; }
+    struct InfoPackage& get_pkg() { return m_package; }
 
+    void executeStrategy(int cmdType);
+
+    
 private:
   InfoStrategy* strategy;
 
-private:
+protected:
     int m_sockfd;
     char m_buf[buf_size];
     struct InfoPackage m_package;
