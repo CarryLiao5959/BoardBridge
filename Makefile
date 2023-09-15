@@ -13,7 +13,7 @@ $(warning OBJS is ${OBJS})
 ALL_OBJS := $(shell find . -name "*.o")
 
 # 头文件
-INCLUDE_TEMP = $(shell find ./* -type d | grep -v '\./config')
+INCLUDE_TEMP = $(shell find ./* -type d)
 INCLUDE = $(patsubst %,-I %, $(INCLUDE_TEMP))
 $(warning INCLUDE is ${INCLUDE})
 

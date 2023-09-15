@@ -48,6 +48,7 @@
         "list": "cpp",
         "ctime": "cpp",
         "set": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "client.h": "c"
     }
 }

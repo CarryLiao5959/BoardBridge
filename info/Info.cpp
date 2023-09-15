@@ -6,6 +6,7 @@ using namespace bb::info;
 using namespace bb::util;
 #include "DBHandler.h"
 using namespace bb::db;
+#include "SysInfo.h"
 
 #include <stdio.h>
 
@@ -13,6 +14,12 @@ Info::Info() {}
 
 Info::Info(int sockfd) {
     m_sockfd = sockfd;
+}
+
+Info::Info(int sockfd, u_int64_t cmd_type, u_int64_t cmd_detail) {
+    m_sockfd = sockfd;
+    m_package.cmd_type = cmd_type;
+    m_package.cmd_detail = cmd_detail;
 }
 
 Info::~Info() {}
@@ -167,11 +174,10 @@ int Info::send_info(int nbytes) {
     return ret;
 }
 
-void Info::info(int cmd,int cmd_detail) {
-    m_package.cmd_type = cmd;
-    m_package.cmd_detail = cmd_detail;
-    FILE *fp = open_pipe();
-    if(cmd==5){
+void Info::info() {
+    FILE* fp = open_pipe();
+    int cmd = m_package.cmd_type;
+    if (cmd== 5) {
         pclose(fp);
         return;
     }
@@ -180,4 +186,6 @@ void Info::info(int cmd,int cmd_detail) {
     size_t nbytes = read_file(filepaths[cmd]);
     send_info(nbytes);
     pclose(fp);
+    // strategy = new SysInfo();
+    // strategy->sendInfo(&m_package, m_sockfd);
 }
