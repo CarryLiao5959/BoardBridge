@@ -200,20 +200,20 @@ void Info::info() {
     // send_info(nbytes);
     // pclose(fp);
     
-    // strategy = new strategies[m_package.cmd_type];
+    // strategy = new ProcInfo();
     // strategy->sendInfo(*this);
 
     executeStrategy(m_package.cmd_type);
 }
 
 void Info::executeStrategy(int cmdType) {
+    log_debug("cmd %d", cmdType);
     for (auto it = strategies.begin();it != strategies.end();it++) {
-        log_debug("[%d]", (*it).first);
+        if ((*it).first == cmdType) {
+            log_debug("map cmd type[%d]", (*it).first);
+            strategies[cmdType]->sendInfo(*this);
+            return;
+        }
     }
-    
-    if (strategies.find(cmdType) != strategies.end()) {
-        strategies[cmdType]->sendInfo(*this);
-    } else {
-        log_warn("Invalid command!");
-    }
+    log_warn("Invalid command!");
 }

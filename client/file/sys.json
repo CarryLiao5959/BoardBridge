@@ -1,39 +1,135 @@
 {
-    "Tasks": {
-        "running": 1,
-        "sleeping": 33,
-        "stopped": 0,
-        "total": 34,
-        "zombie": 0
+    "process 1": {
+        "COMMAND": "ps",
+        "PID": 6347,
+        "PPID": 6346,
+        "STATUS": "R",
+        "STIME": "15:46"
     },
-    "cpu": {
-        "hi": 0.0,
-        "id": 100.0,
-        "ni": 0.0,
-        "si": 0.0,
-        "st": 0.0,
-        "sy": 0.0,
-        "us": 0.0,
-        "wa": 0.0
+    "process 10": {
+        "COMMAND": "cpptools-srv",
+        "PID": 21762,
+        "PPID": 144,
+        "STATUS": "S",
+        "STIME": "14:16"
     },
-    "load_average": [
-        0.23000000417232513,
-        0.10999999940395355,
-        0.07000000029802322
-    ],
-    "memory": {
-        "buff/cache": 1443.800048828125,
-        "free": 10335.7001953125,
-        "total": 12528.900390625,
-        "used": 749.4000244140625
+    "process 11": {
+        "COMMAND": "init",
+        "PID": 2311,
+        "PPID": 1,
+        "STATUS": "S",
+        "STIME": "09:26"
     },
-    "swap": {
-        "avail Mem": 11518.2001953125,
-        "free": 4096.0,
-        "total": 4096.0,
-        "used": 0.0
+    "process 12": {
+        "COMMAND": "init",
+        "PID": 2312,
+        "PPID": 2311,
+        "STATUS": "S",
+        "STIME": "09:26"
     },
-    "system_time": "11:36:23",
-    "uptime": "22:18",
-    "users": 0
+    "process 13": {
+        "COMMAND": "node",
+        "PID": 2313,
+        "PPID": 2312,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 14": {
+        "COMMAND": "node",
+        "PID": 2304,
+        "PPID": 2303,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 15": {
+        "COMMAND": "init",
+        "PID": 2302,
+        "PPID": 1,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 16": {
+        "COMMAND": "init",
+        "PID": 2303,
+        "PPID": 2302,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 17": {
+        "COMMAND": "node",
+        "PID": 2292,
+        "PPID": 2289,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 18": {
+        "COMMAND": "init",
+        "PID": 2288,
+        "PPID": 1,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 19": {
+        "COMMAND": "init",
+        "PID": 2289,
+        "PPID": 2288,
+        "STATUS": "S",
+        "STIME": "09:26"
+    },
+    "process 2": {
+        "COMMAND": "head",
+        "PID": 6348,
+        "PPID": 6346,
+        "STATUS": "S",
+        "STIME": "15:46"
+    },
+    "process 3": {
+        "COMMAND": "sh",
+        "PID": 6346,
+        "PPID": 6323,
+        "STATUS": "S",
+        "STIME": "15:46"
+    },
+    "process 4": {
+        "COMMAND": "c",
+        "PID": 6345,
+        "PPID": 1954,
+        "STATUS": "S",
+        "STIME": "15:46"
+    },
+    "process 5": {
+        "COMMAND": "server",
+        "PID": 6323,
+        "PPID": 10,
+        "STATUS": "S",
+        "STIME": "15:46"
+    },
+    "process 6": {
+        "COMMAND": "node",
+        "PID": 3185,
+        "PPID": 510,
+        "STATUS": "S",
+        "STIME": "15:29"
+    },
+    "process 7": {
+        "COMMAND": "bash",
+        "PID": 1954,
+        "PPID": 1953,
+        "STATUS": "S",
+        "STIME": "15:23"
+    },
+    "process 8": {
+        "COMMAND": "init",
+        "PID": 1952,
+        "PPID": 1,
+        "STATUS": "S",
+        "STIME": "15:23"
+    },
+    "process 9": {
+        "COMMAND": "init",
+        "PID": 1953,
+        "PPID": 1952,
+        "STATUS": "S",
+        "STIME": "15:23"
+    }
 }
