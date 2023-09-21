@@ -11,15 +11,15 @@ namespace bb {
 namespace util {
 
 #define log_debug(format, ...) \
-    Logger::instance()->log(Logger::DEBUG, __FILE__, __LINE__, format, ##__VA_ARGS__);
+    Logger::instance()->log(Logger::DEBUG, __FILE__, __FUNCTION__, __LINE__, format, ##__VA_ARGS__);
 #define log_info(format, ...) \
-    Logger::instance()->log(Logger::INFO, __FILE__, __LINE__, format, ##__VA_ARGS__);
+    Logger::instance()->log(Logger::INFO, __FILE__, __FUNCTION__, __LINE__, format, ##__VA_ARGS__);
 #define log_warn(format, ...) \
-    Logger::instance()->log(Logger::WARN, __FILE__, __LINE__, format, ##__VA_ARGS__);
+    Logger::instance()->log(Logger::WARN, __FILE__, __FUNCTION__, __LINE__, format, ##__VA_ARGS__);
 #define log_error(format, ...) \
-    Logger::instance()->log(Logger::ERROR, __FILE__, __LINE__, format, ##__VA_ARGS__);
+    Logger::instance()->log(Logger::ERROR, __FILE__, __FUNCTION__, __LINE__, format, ##__VA_ARGS__);
 #define log_fatal(format, ...) \
-    Logger::instance()->log(Logger::FATAL, __FILE__, __LINE__, format, ##__VA_ARGS__);
+    Logger::instance()->log(Logger::FATAL, __FILE__, __FUNCTION__, __LINE__, format, ##__VA_ARGS__);
 
 class Logger {
   public:
@@ -34,7 +34,7 @@ class Logger {
 
     static Logger *instance();
 
-    void log(Level level, const char *file, int line, const char *fmt, ...);
+    void log(Level level, const char *file, const char *function, int line, const char *fmt, ...);
 
     void open_ofstream(const string &filename, ios_base::openmode mode = ios::app);
     void close_fstream();

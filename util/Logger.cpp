@@ -68,7 +68,7 @@ void Logger::close_fstream() {
     m_fin.close();
 }
 
-void Logger::log(Level level, const char *file, int line, const char *fmt, ...) {
+void Logger::log(Level level, const char *file, const char *function, int line, const char *fmt, ...) {
     if (m_level > level) {
         return;
     }
@@ -85,12 +85,12 @@ void Logger::log(Level level, const char *file, int line, const char *fmt, ...) 
     memset(timestamp, 0, 32);
     strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", ptm);
 
-    const char *myfmt = "%s %s %s: %d ";
-    int size = snprintf(NULL, 0, myfmt, timestamp, s_level[level], file, line);
+    const char *myfmt = "%s %5s %30s(%3d) <%16s>  ";
+    int size = snprintf(NULL, 0, myfmt, timestamp, s_level[level], file, line, function);
     m_mutex.lock();
     if (size > 0) {
         char *buffer = new char[size + 1];
-        snprintf(buffer, size + 1, myfmt, timestamp, s_level[level], file, line);
+        snprintf(buffer, size + 1, myfmt, timestamp, s_level[level], file, line, function);
         buffer[size] = '\0';
         m_fout << buffer;
         delete[] buffer;
