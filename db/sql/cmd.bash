@@ -1,4 +1,4 @@
-sudo -u postgres psql -p 5433 -d bb -a -f sql/sys.sql
+sudo -u postgres psql -p 5432 -d bb -a -f sql/sys.sql
 
 # sudo -u postgres: 使用 sudo 命令允许你以其他用户的身份执行命令，这里指的是以 postgres 用户身份。在默认情况下，postgres 是 PostgreSQL 的默认超级用户。
 # psql: 是 PostgreSQL 的命令行客户端。

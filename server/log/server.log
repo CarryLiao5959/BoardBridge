@@ -1,32 +1,470 @@
 -----------------------------------------------------------------------
-2023-09-21 15:02:03 DEBUG                ./util/System.h( 29)<init> open log/server.log
-2023-09-21 15:02:03  INFO              server/Server.cpp( 13)<Server> server ip: 111.111.111.110
-2023-09-21 15:02:03  INFO              server/Server.cpp( 14)<Server> server port: 8080
-2023-09-21 15:02:03  INFO              server/Server.cpp( 15)<Server> threadpool_num: 8
-2023-09-21 15:02:03  INFO              server/Server.cpp( 16)<Server> socketpool_num: 8
-2023-09-21 15:02:03  INFO              server/Server.cpp( 17)<Server> wait_time: 10
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp(  9)<Thread> Thread created, tid is 0
-2023-09-21 15:02:03 DEBUG      thread/TaskDispatcher.cpp( 15)<init_threadpool> init TaskDispatcher
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 1
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 1
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 2
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 2
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 3
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 3
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 4
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 4
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 5
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 5
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 6
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 6
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 7
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 7
-2023-09-21 15:02:03 DEBUG              thread/Thread.cpp( 13)<Thread> Thread created, tid is 8
-2023-09-21 15:02:03 DEBUG            thread/ThreadPool.h( 25)<create> WorkerThread created 8
-2023-09-21 15:02:03  INFO              socket/Socket.cpp( 53)<sock_init> sock set success: 5
-2023-09-21 15:02:03 DEBUG      thread/TaskDispatcher.cpp( 34)<run> TaskDispatcher m_tasks is empty
-2023-09-21 15:02:03  INFO              socket/Socket.cpp( 77)<set_reuse_addr> setsockopt SO_REUSEADDR success
-2023-09-21 15:02:03  INFO              socket/Socket.cpp( 65)<set_keep_alive> setsockopt SO_KEEPALIVE success
-2023-09-21 15:02:03  INFO              socket/Socket.cpp( 32)<sock_bind> bind success
-2023-09-21 15:02:03  INFO              socket/Socket.cpp( 42)<sock_listen> listen success
-2023-09-21 15:02:03  INFO       socket/SocketHandler.cpp( 39)<handle> serv_sock: 5
+2023-10-08 01:53:32 DEBUG                ./util/System.h( 29) <            init()>  open log/server.log
+2023-10-08 01:53:32  INFO              server/Server.cpp( 13) <          Server()>  server ip: 111.111.111.110
+2023-10-08 01:53:32  INFO              server/Server.cpp( 14) <          Server()>  server port: 8080
+2023-10-08 01:53:32  INFO              server/Server.cpp( 15) <          Server()>  threadpool_num: 8
+2023-10-08 01:53:32  INFO              server/Server.cpp( 16) <          Server()>  socketpool_num: 8
+2023-10-08 01:53:32  INFO              server/Server.cpp( 17) <          Server()>  wait_time: 10
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp(  9) <          Thread()>  Thread created, tid is 0
+2023-10-08 01:53:32 DEBUG      thread/TaskDispatcher.cpp( 15) < init_threadpool()>  init TaskDispatcher
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 1
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 1
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 2
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 2
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 3
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 3
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 4
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 4
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 5
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 5
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 6
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 6
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 7
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 7
+2023-10-08 01:53:32 DEBUG              thread/Thread.cpp( 13) <          Thread()>  Thread created, tid is 8
+2023-10-08 01:53:32 DEBUG            thread/ThreadPool.h( 25) <          create()>  WorkerThread created 8
+2023-10-08 01:53:32  INFO              socket/Socket.cpp( 53) <       sock_init()>  sock set success: 5
+2023-10-08 01:53:32  INFO              socket/Socket.cpp( 77) <  set_reuse_addr()>  setsockopt SO_REUSEADDR success
+2023-10-08 01:53:32  INFO              socket/Socket.cpp( 65) <  set_keep_alive()>  setsockopt SO_KEEPALIVE success
+2023-10-08 01:53:32  INFO              socket/Socket.cpp( 32) <       sock_bind()>  bind success
+2023-10-08 01:53:32 DEBUG      thread/TaskDispatcher.cpp( 34) <             run()>  TaskDispatcher m_tasks is empty
+2023-10-08 01:53:32  INFO              socket/Socket.cpp( 42) <     sock_listen()>  listen success
+2023-10-08 01:53:32  INFO       socket/SocketHandler.cpp( 39) <          handle()>  serv_sock: 5
+2023-10-08 01:53:37 DEBUG       socket/SocketHandler.cpp( 52) <          handle()>  efd from serv_sock [5]
+2023-10-08 01:53:37  INFO             socket/SSocket.cpp( 27) <     sock_accept()>  accept success: conn_sock 6
+2023-10-08 01:53:37  INFO       socket/SocketHandler.cpp( 79) <          handle()>  efd from cli_sock [6]
+2023-10-08 01:53:37 DEBUG       socket/SocketHandler.cpp( 84) <          handle()>  recv data: SYS_INFO
+2023-10-08 01:53:37 DEBUG              select/Select.cpp( 89) <           rm_fd()>  max_fd=6
+2023-10-08 01:53:37 DEBUG              ./task/WorkTask.h( 23) <        WorkTask()>  new WorkTask sockfd: 6
+2023-10-08 01:53:37 DEBUG      thread/TaskDispatcher.cpp( 58) <          assign()>  assign task
+2023-10-08 01:53:37 DEBUG      thread/TaskDispatcher.cpp( 46) <             run()>  let threadpool to assign task
+2023-10-08 01:53:37  INFO          thread/ThreadPool.cpp( 64) <          assign()>  task is given to thread -1253498912
+2023-10-08 01:53:37 DEBUG      thread/TaskDispatcher.cpp( 34) <             run()>  TaskDispatcher m_tasks is empty
+2023-10-08 01:53:37 DEBUG          thread/WorkThread.cpp( 30) <             run()>  thread -1253498912 find task from socket 6 cmd 1
+2023-10-08 01:53:37 DEBUG              task/WorkTask.cpp( 14) <             run()>  WorkTask running
+2023-10-08 01:53:37  INFO              task/WorkTask.cpp( 19) <             run()>  cmd: SYS_INFO
+2023-10-08 01:53:37 DEBUG                  info/Info.cpp(208) <            info()>  get_sys_json
+2023-10-08 01:53:37 DEBUG                 info/SysInfo.h( 21) <        sendInfo()>  SysInfo InfoStrategy
+2023-10-08 01:53:37 DEBUG           util/FileHandler.cpp( 42) <       open_pipe()>  open_pipe
+2023-10-08 01:53:37 DEBUG           util/FileHandler.cpp( 53) <       read_pipe()>  read_pipe
+2023-10-08 01:53:37 DEBUG           util/FileHandler.cpp( 63) <       read_pipe()>  buf=[top - 01:53:37 up 16 days, 18:09,  3 users,  load average: 0.24, 0.09, 0.03
+任务: 253 total,   1 running, 252 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  1.6 sy,  0.0 ni, 95.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  15954.3 total,  12686.7 free,    903.1 used,   2364.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  14835.5 avail Mem 
+],len=[378]
+2023-10-08 01:53:37 DEBUG                 info/SysInfo.h( 31) <        sendInfo()>  get_sys_json
+2023-10-08 01:53:37 DEBUG                 info/SysInfo.h( 34) <        sendInfo()>  buf: top - 01:53:37 up 16 days, 18:09,  3 users,  load average: 0.24, 0.09, 0.03
+任务: 253 total,   1 running, 252 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.1 us,  1.6 sy,  0.0 ni, 95.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  15954.3 total,  12686.7 free,    903.1 used,   2364.5 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  14835.5 avail Mem 
+
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp( 64) <    get_sys_json()>  1
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp( 70) <    get_sys_json()>  system_time 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp( 74) <    get_sys_json()>  system_time 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp( 78) <    get_sys_json()>  system_time -1253504104
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp( 90) <    get_sys_json()>  2
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(110) <    get_sys_json()>  3
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(116) <    get_sys_json()>  start 8 end 14   3.1 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(117) <    get_sys_json()>  us
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(122) <    get_sys_json()>  start 17 end 23   1.6 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(123) <    get_sys_json()>  sy
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(128) <    get_sys_json()>  start 26 end 32   0.0 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(129) <    get_sys_json()>  ni
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(134) <    get_sys_json()>  start 35 end 41  95.3 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(135) <    get_sys_json()>  id
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(140) <    get_sys_json()>  start 44 end 50   0.0 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(141) <    get_sys_json()>  wa
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(146) <    get_sys_json()>  start 53 end 59   0.0 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(147) <    get_sys_json()>  hi
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(152) <    get_sys_json()>  start 62 end 68   0.0 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(154) <    get_sys_json()>  si
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(159) <    get_sys_json()>  start 71 end 77   0.0 
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(161) <    get_sys_json()>  st
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(164) <    get_sys_json()>  4
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(181) <    get_sys_json()>  5
+2023-10-08 01:53:37 DEBUG           util/JsonHandler.cpp(201) <    get_sys_json()>  Data saved to sys.json
+2023-10-08 01:53:37 DEBUG               db/DBHandler.cpp( 41) <   get_json_data()>  filename: info/sys.json
+2023-10-08 01:53:37  INFO               db/DBHandler.cpp( 63) <      try_insert()>  connection db success
+2023-10-08 01:53:37  INFO               db/DBHandler.cpp( 67) <      try_insert()>  exec sql success
+2023-10-08 01:53:37  INFO               db/DBHandler.cpp( 69) <      try_insert()>  commit sql success
+2023-10-08 01:53:37  INFO               db/DBHandler.cpp( 71) <      try_insert()>  Data inserted into the database.
+2023-10-08 01:53:37 DEBUG           util/FileHandler.cpp( 19) <       read_file()>  read_file
+2023-10-08 01:53:37 DEBUG           util/FileHandler.cpp( 22) <       read_file()>  filename: info/sys.json
+2023-10-08 01:53:37 DEBUG           util/FileHandler.cpp( 35) <       read_file()>  {
+    "Tasks": {
+        "running": 1,
+        "sleeping": 252,
+        "stopped": 0,
+        "total": 253,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 95.30000305175781,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 1.600000023841858,
+        "us": 3.0999999046325684,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23999999463558197,
+        0.09000000357627869,
+        0.029999999329447746
+    ],
+    "memory": {
+        "buff/cache": 2364.5,
+        "free": 12686.7001953125,
+        "total": 15954.2998046875,
+        "used": 903.0999755859375
+    },
+    "swap": {
+        "avail Mem": 14835.5,
+        "free": 0.0,
+        "total": 0.0,
+        "used": 0.0
+    },
+    "system_time": "01:53:37",
+    "uptime": "16 days",
+    "users": 18
+}
+
+2023-10-08 01:53:37 DEBUG                 info/SysInfo.h( 41) <        sendInfo()>  1,1,{
+    "Tasks": {
+        "running": 1,
+        "sleeping": 252,
+        "stopped": 0,
+        "total": 253,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 95.30000305175781,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 1.600000023841858,
+        "us": 3.0999999046325684,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.23999999463558197,
+        0.09000000357627869,
+        0.029999999329447746
+    ],
+    "memory": {
+        "buff/cache": 2364.5,
+        "free": 12686.7001953125,
+        "total": 15954.2998046875,
+        "used": 903.0999755859375
+    },
+    "swap": {
+        "avail Mem": 14835.5,
+        "free": 0.0,
+        "total": 0.0,
+        "used": 0.0
+    },
+    "system_time": "01:53:37",
+    "uptime": "16 days",
+    "users": 18
+}
+
+2023-10-08 01:53:37 DEBUG                  info/Info.cpp(171) <       send_info()>  m_sockfd=[6]
+2023-10-08 01:53:37 DEBUG                  info/Info.cpp(188) <       send_info()>  send success
+2023-10-08 01:53:37  WARN              socket/Socket.cpp( 90) <           close()>  Socket closed: 0
+2023-10-08 01:53:37 DEBUG                task/WorkTask.h( 30) <         destroy()>  WorkTask destory
+2023-10-08 03:17:48 DEBUG       socket/SocketHandler.cpp( 52) <          handle()>  efd from serv_sock [5]
+2023-10-08 03:17:48  INFO             socket/SSocket.cpp( 27) <     sock_accept()>  accept success: conn_sock 6
+2023-10-08 03:17:48  INFO       socket/SocketHandler.cpp( 79) <          handle()>  efd from cli_sock [6]
+2023-10-08 03:17:48 DEBUG       socket/SocketHandler.cpp( 84) <          handle()>  recv data: SYS_INFO
+2023-10-08 03:17:48 DEBUG              select/Select.cpp( 89) <           rm_fd()>  max_fd=6
+2023-10-08 03:17:48 DEBUG              ./task/WorkTask.h( 23) <        WorkTask()>  new WorkTask sockfd: 6
+2023-10-08 03:17:48 DEBUG      thread/TaskDispatcher.cpp( 58) <          assign()>  assign task
+2023-10-08 03:17:48 DEBUG      thread/TaskDispatcher.cpp( 46) <             run()>  let threadpool to assign task
+2023-10-08 03:17:48  INFO          thread/ThreadPool.cpp( 64) <          assign()>  task is given to thread -1253498912
+2023-10-08 03:17:48 DEBUG      thread/TaskDispatcher.cpp( 34) <             run()>  TaskDispatcher m_tasks is empty
+2023-10-08 03:17:48 DEBUG          thread/WorkThread.cpp( 30) <             run()>  thread -1253498912 find task from socket 6 cmd 1
+2023-10-08 03:17:48 DEBUG              task/WorkTask.cpp( 14) <             run()>  WorkTask running
+2023-10-08 03:17:48  INFO              task/WorkTask.cpp( 19) <             run()>  cmd: SYS_INFO
+2023-10-08 03:17:48 DEBUG                  info/Info.cpp(208) <            info()>  get_sys_json
+2023-10-08 03:17:48 DEBUG                 info/SysInfo.h( 21) <        sendInfo()>  SysInfo InfoStrategy
+2023-10-08 03:17:48 DEBUG           util/FileHandler.cpp( 42) <       open_pipe()>  open_pipe
+2023-10-08 03:17:48 DEBUG           util/FileHandler.cpp( 53) <       read_pipe()>  read_pipe
+2023-10-08 03:17:49 DEBUG           util/FileHandler.cpp( 63) <       read_pipe()>  buf=[top - 03:17:49 up 16 days, 19:33,  3 users,  load average: 0.00, 0.00, 0.00
+任务: 252 total,   1 running, 251 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.6 us,  2.4 sy,  0.0 ni, 96.1 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  15954.3 total,  12673.3 free,    916.8 used,   2364.3 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  14821.8 avail Mem 
+],len=[378]
+2023-10-08 03:17:49 DEBUG                 info/SysInfo.h( 31) <        sendInfo()>  get_sys_json
+2023-10-08 03:17:49 DEBUG                 info/SysInfo.h( 34) <        sendInfo()>  buf: top - 03:17:49 up 16 days, 19:33,  3 users,  load average: 0.00, 0.00, 0.00
+任务: 252 total,   1 running, 251 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.6 us,  2.4 sy,  0.0 ni, 96.1 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  15954.3 total,  12673.3 free,    916.8 used,   2364.3 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  14821.8 avail Mem 
+
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp( 64) <    get_sys_json()>  1
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp( 70) <    get_sys_json()>  system_time [
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp( 74) <    get_sys_json()>  system_time 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp( 78) <    get_sys_json()>  system_time -1253504104
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp( 90) <    get_sys_json()>  2
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(110) <    get_sys_json()>  3
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(116) <    get_sys_json()>  start 8 end 14   1.6 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(117) <    get_sys_json()>  us
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(122) <    get_sys_json()>  start 17 end 23   2.4 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(123) <    get_sys_json()>  sy
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(128) <    get_sys_json()>  start 26 end 32   0.0 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(129) <    get_sys_json()>  ni
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(134) <    get_sys_json()>  start 35 end 41  96.1 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(135) <    get_sys_json()>  id
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(140) <    get_sys_json()>  start 44 end 50   0.0 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(141) <    get_sys_json()>  wa
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(146) <    get_sys_json()>  start 53 end 59   0.0 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(147) <    get_sys_json()>  hi
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(152) <    get_sys_json()>  start 62 end 68   0.0 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(154) <    get_sys_json()>  si
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(159) <    get_sys_json()>  start 71 end 77   0.0 
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(161) <    get_sys_json()>  st
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(164) <    get_sys_json()>  4
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(181) <    get_sys_json()>  5
+2023-10-08 03:17:49 DEBUG           util/JsonHandler.cpp(201) <    get_sys_json()>  Data saved to sys.json
+2023-10-08 03:17:49 DEBUG               db/DBHandler.cpp( 41) <   get_json_data()>  filename: info/sys.json
+2023-10-08 03:17:49  INFO               db/DBHandler.cpp( 63) <      try_insert()>  connection db success
+2023-10-08 03:17:49  INFO               db/DBHandler.cpp( 67) <      try_insert()>  exec sql success
+2023-10-08 03:17:49  INFO               db/DBHandler.cpp( 69) <      try_insert()>  commit sql success
+2023-10-08 03:17:49  INFO               db/DBHandler.cpp( 71) <      try_insert()>  Data inserted into the database.
+2023-10-08 03:17:49 DEBUG           util/FileHandler.cpp( 19) <       read_file()>  read_file
+2023-10-08 03:17:49 DEBUG           util/FileHandler.cpp( 22) <       read_file()>  filename: info/sys.json
+2023-10-08 03:17:49 DEBUG           util/FileHandler.cpp( 35) <       read_file()>  {
+    "Tasks": {
+        "running": 1,
+        "sleeping": 251,
+        "stopped": 0,
+        "total": 252,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 96.0999984741211,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 2.4000000953674316,
+        "us": 1.600000023841858,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "memory": {
+        "buff/cache": 2364.300048828125,
+        "free": 12673.2998046875,
+        "total": 15954.2998046875,
+        "used": 916.7999877929688
+    },
+    "swap": {
+        "avail Mem": 14821.7998046875,
+        "free": 0.0,
+        "total": 0.0,
+        "used": 0.0
+    },
+    "system_time": "03:17:49",
+    "uptime": "16 days",
+    "users": 19
+}
+
+2023-10-08 03:17:49 DEBUG                 info/SysInfo.h( 41) <        sendInfo()>  1,1,{
+    "Tasks": {
+        "running": 1,
+        "sleeping": 251,
+        "stopped": 0,
+        "total": 252,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 96.0999984741211,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 2.4000000953674316,
+        "us": 1.600000023841858,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "memory": {
+        "buff/cache": 2364.300048828125,
+        "free": 12673.2998046875,
+        "total": 15954.2998046875,
+        "used": 916.7999877929688
+    },
+    "swap": {
+        "avail Mem": 14821.7998046875,
+        "free": 0.0,
+        "total": 0.0,
+        "used": 0.0
+    },
+    "system_time": "03:17:49",
+    "uptime": "16 days",
+    "users": 19
+}
+
+2023-10-08 03:17:49 DEBUG                  info/Info.cpp(171) <       send_info()>  m_sockfd=[6]
+2023-10-08 03:17:49 DEBUG                  info/Info.cpp(188) <       send_info()>  send success
+2023-10-08 03:17:49  WARN              socket/Socket.cpp( 90) <           close()>  Socket closed: 0
+2023-10-08 03:17:49 DEBUG                task/WorkTask.h( 30) <         destroy()>  WorkTask destory
+2023-10-08 03:19:52 DEBUG       socket/SocketHandler.cpp( 52) <          handle()>  efd from serv_sock [5]
+2023-10-08 03:19:52  INFO             socket/SSocket.cpp( 27) <     sock_accept()>  accept success: conn_sock 6
+2023-10-08 03:19:52  INFO       socket/SocketHandler.cpp( 79) <          handle()>  efd from cli_sock [6]
+2023-10-08 03:19:52 DEBUG       socket/SocketHandler.cpp( 84) <          handle()>  recv data: SYS_INFO
+2023-10-08 03:19:52 DEBUG              select/Select.cpp( 89) <           rm_fd()>  max_fd=6
+2023-10-08 03:19:52 DEBUG              ./task/WorkTask.h( 23) <        WorkTask()>  new WorkTask sockfd: 6
+2023-10-08 03:19:52 DEBUG      thread/TaskDispatcher.cpp( 58) <          assign()>  assign task
+2023-10-08 03:19:52 DEBUG      thread/TaskDispatcher.cpp( 46) <             run()>  let threadpool to assign task
+2023-10-08 03:19:52  INFO          thread/ThreadPool.cpp( 64) <          assign()>  task is given to thread -1253498912
+2023-10-08 03:19:52 DEBUG      thread/TaskDispatcher.cpp( 34) <             run()>  TaskDispatcher m_tasks is empty
+2023-10-08 03:19:52 DEBUG          thread/WorkThread.cpp( 30) <             run()>  thread -1253498912 find task from socket 6 cmd 1
+2023-10-08 03:19:52 DEBUG              task/WorkTask.cpp( 14) <             run()>  WorkTask running
+2023-10-08 03:19:52  INFO              task/WorkTask.cpp( 19) <             run()>  cmd: SYS_INFO
+2023-10-08 03:19:52 DEBUG                  info/Info.cpp(208) <            info()>  get_sys_json
+2023-10-08 03:19:52 DEBUG                 info/SysInfo.h( 21) <        sendInfo()>  SysInfo InfoStrategy
+2023-10-08 03:19:52 DEBUG           util/FileHandler.cpp( 42) <       open_pipe()>  open_pipe
+2023-10-08 03:19:52 DEBUG           util/FileHandler.cpp( 53) <       read_pipe()>  read_pipe
+2023-10-08 03:19:52 DEBUG           util/FileHandler.cpp( 63) <       read_pipe()>  buf=[top - 03:19:52 up 16 days, 19:35,  3 users,  load average: 0.00, 0.00, 0.00
+任务: 255 total,   1 running, 254 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.4 us,  1.6 sy,  0.0 ni, 96.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  15954.3 total,  12675.1 free,    915.0 used,   2364.2 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  14823.6 avail Mem 
+],len=[378]
+2023-10-08 03:19:52 DEBUG                 info/SysInfo.h( 31) <        sendInfo()>  get_sys_json
+2023-10-08 03:19:52 DEBUG                 info/SysInfo.h( 34) <        sendInfo()>  buf: top - 03:19:52 up 16 days, 19:35,  3 users,  load average: 0.00, 0.00, 0.00
+任务: 255 total,   1 running, 254 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  2.4 us,  1.6 sy,  0.0 ni, 96.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :  15954.3 total,  12675.1 free,    915.0 used,   2364.2 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.  14823.6 avail Mem 
+
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp( 64) <    get_sys_json()>  1
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp( 70) <    get_sys_json()>  system_time g
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp( 74) <    get_sys_json()>  system_time 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp( 78) <    get_sys_json()>  system_time -1253504104
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp( 90) <    get_sys_json()>  2
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(110) <    get_sys_json()>  3
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(116) <    get_sys_json()>  start 8 end 14   2.4 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(117) <    get_sys_json()>  us
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(122) <    get_sys_json()>  start 17 end 23   1.6 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(123) <    get_sys_json()>  sy
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(128) <    get_sys_json()>  start 26 end 32   0.0 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(129) <    get_sys_json()>  ni
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(134) <    get_sys_json()>  start 35 end 41  96.0 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(135) <    get_sys_json()>  id
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(140) <    get_sys_json()>  start 44 end 50   0.0 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(141) <    get_sys_json()>  wa
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(146) <    get_sys_json()>  start 53 end 59   0.0 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(147) <    get_sys_json()>  hi
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(152) <    get_sys_json()>  start 62 end 68   0.0 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(154) <    get_sys_json()>  si
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(159) <    get_sys_json()>  start 71 end 77   0.0 
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(161) <    get_sys_json()>  st
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(164) <    get_sys_json()>  4
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(181) <    get_sys_json()>  5
+2023-10-08 03:19:52 DEBUG           util/JsonHandler.cpp(201) <    get_sys_json()>  Data saved to sys.json
+2023-10-08 03:19:52 DEBUG               db/DBHandler.cpp( 41) <   get_json_data()>  filename: info/sys.json
+2023-10-08 03:19:52  INFO               db/DBHandler.cpp( 63) <      try_insert()>  connection db success
+2023-10-08 03:19:52  INFO               db/DBHandler.cpp( 67) <      try_insert()>  exec sql success
+2023-10-08 03:19:52  INFO               db/DBHandler.cpp( 69) <      try_insert()>  commit sql success
+2023-10-08 03:19:52  INFO               db/DBHandler.cpp( 71) <      try_insert()>  Data inserted into the database.
+2023-10-08 03:19:52 DEBUG           util/FileHandler.cpp( 19) <       read_file()>  read_file
+2023-10-08 03:19:52 DEBUG           util/FileHandler.cpp( 22) <       read_file()>  filename: info/sys.json
+2023-10-08 03:19:52 DEBUG           util/FileHandler.cpp( 35) <       read_file()>  {
+    "Tasks": {
+        "running": 1,
+        "sleeping": 254,
+        "stopped": 0,
+        "total": 255,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 96.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 1.600000023841858,
+        "us": 2.4000000953674316,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "memory": {
+        "buff/cache": 2364.199951171875,
+        "free": 12675.099609375,
+        "total": 15954.2998046875,
+        "used": 915.0
+    },
+    "swap": {
+        "avail Mem": 14823.599609375,
+        "free": 0.0,
+        "total": 0.0,
+        "used": 0.0
+    },
+    "system_time": "03:19:52",
+    "uptime": "16 days",
+    "users": 19
+}
+
+2023-10-08 03:19:52 DEBUG                 info/SysInfo.h( 41) <        sendInfo()>  1,1,{
+    "Tasks": {
+        "running": 1,
+        "sleeping": 254,
+        "stopped": 0,
+        "total": 255,
+        "zombie": 0
+    },
+    "cpu": {
+        "hi": 0.0,
+        "id": 96.0,
+        "ni": 0.0,
+        "si": 0.0,
+        "st": 0.0,
+        "sy": 1.600000023841858,
+        "us": 2.4000000953674316,
+        "wa": 0.0
+    },
+    "load_average": [
+        0.0,
+        0.0,
+        0.0
+    ],
+    "memory": {
+        "buff/cache": 2364.199951171875,
+        "free": 12675.099609375,
+        "total": 15954.2998046875,
+        "used": 915.0
+    },
+    "swap": {
+        "avail Mem": 14823.599609375,
+        "free": 0.0,
+        "total": 0.0,
+        "used": 0.0
+    },
+    "system_time": "03:19:52",
+    "uptime": "16 days",
+    "users": 19
+}
+
+2023-10-08 03:19:52 DEBUG                  info/Info.cpp(171) <       send_info()>  m_sockfd=[6]
+2023-10-08 03:19:52 DEBUG                  info/Info.cpp(188) <       send_info()>  send success
+2023-10-08 03:19:52  WARN              socket/Socket.cpp( 90) <           close()>  Socket closed: 0
+2023-10-08 03:19:52 DEBUG                task/WorkTask.h( 30) <         destroy()>  WorkTask destory

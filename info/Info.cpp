@@ -230,7 +230,7 @@ void Info::info() {
         strategy->sendInfo(*this);
         break;
     case 6:
-        log_debug("kill proc");
+        log_debug("kill cpu");
         strategy = new CPUop();
         strategy->sendInfo(*this);
         break;

@@ -36,9 +36,23 @@ public:
         }
 	    log_debug("excute str cmd success");
 
-        while (fgets(info.get_pkg().content_buf, 1024, fp) != NULL) {
+        char temp_buf[1024];
+        while (fgets(temp_buf, 1024, fp) != NULL) {
             log_info("%s", info.get_pkg().content_buf);
+            strcat(info.get_pkg().content_buf, temp_buf); // 追加到缓冲区末尾
         }
+        fp=popen("cat /sys/devices/system/cpu/online","r");
+        if(fp==NULL){
+            log_error("%s",strerror(errno));
+            return;
+        }
+	    log_debug("excute str cmd success");
+
+        while (fgets(temp_buf, 1024, fp) != NULL) {
+            log_info("%s", info.get_pkg().content_buf);
+            strcat(info.get_pkg().content_buf, temp_buf); // 追加到缓冲区末尾
+        }
+
         pclose(fp);
 
         strcat(info.get_pkg().content_buf, "\nkill cpu success");

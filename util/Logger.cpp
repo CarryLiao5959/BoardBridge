@@ -85,7 +85,7 @@ void Logger::log(Level level, const char *file, const char *function, int line, 
     memset(timestamp, 0, 32);
     strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", ptm);
 
-    const char *myfmt = "%s %5s %30s(%3d) <%16s>  ";
+    const char *myfmt = "%s %5s %30s(%3d) <%16s()>  ";
     int size = snprintf(NULL, 0, myfmt, timestamp, s_level[level], file, line, function);
     m_mutex.lock();
     if (size > 0) {
